@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { howItWorks, merch } from "@/data/content";
 import { Stars, Waves } from "./Decor";
 import Icon from "./Icon";
@@ -36,37 +37,76 @@ export function HowItWorks() {
 /* Merch Solidario — "Morfeo en tu Rutina"                             */
 /* ------------------------------------------------------------------ */
 export function Merch() {
-  const { eyebrow, title, slogan, intro, products, availability, scholarship, foundations } = merch;
+  const { eyebrow, title, slogan, intro, heroImage, heroImageAlt, products, availability, scholarship, foundations } =
+    merch;
 
   return (
     <section id="merch" className="scroll-mt-20 bg-profundo/40 py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle eyebrow={eyebrow} title={title} />
-        <p className="mx-auto mt-5 max-w-2xl text-center font-brand text-xl font-light italic leading-snug text-lavanda sm:text-2xl">
-          “{slogan}”
-        </p>
-        <p className="mx-auto mt-5 max-w-2xl text-center font-light leading-relaxed text-plata/80">{intro}</p>
+        {/* Cabecera: texto + foto de toda la línea */}
+        <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-14">
+          <div className="text-center lg:text-left">
+            <div className="hidden lg:block">
+              <SectionTitle eyebrow={eyebrow} title={title} align="left" />
+            </div>
+            <div className="lg:hidden">
+              <SectionTitle eyebrow={eyebrow} title={title} />
+            </div>
+            <p className="mx-auto mt-5 max-w-xl font-brand text-xl font-light italic leading-snug text-lavanda sm:text-2xl lg:mx-0">
+              “{slogan}”
+            </p>
+            <p className="mx-auto mt-5 max-w-xl font-light leading-relaxed text-plata/80 lg:mx-0">{intro}</p>
+            <p className="mt-6 flex items-start justify-center gap-2 text-sm text-hielo/80 lg:justify-start">
+              <Icon name="pin" className="mt-0.5 h-4 w-4 shrink-0 text-lavanda" />
+              {availability}
+            </p>
+          </div>
+
+          {heroImage && (
+            <figure className="group relative overflow-hidden rounded-3xl border border-lavanda/25 shadow-2xl shadow-black/50">
+              <Image
+                src={heroImage}
+                alt={heroImageAlt}
+                width={1280}
+                height={830}
+                sizes="(min-width: 1024px) 700px, 100vw"
+                className="h-auto w-full transition-transform duration-700 group-hover:scale-[1.03]"
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-perla/10" />
+            </figure>
+          )}
+        </div>
 
         {/* Productos */}
-        <ul className="mt-14 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
+        <ul className="mt-16 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
           {products.map((p) => (
             <li
               key={p.name}
-              className="card-light group flex flex-col items-center p-4 text-center transition-all sm:p-7 duration-300 hover:-translate-y-1.5 hover:shadow-lavanda/30"
+              className="card-light group flex flex-col text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lavanda/30"
             >
-              <span className="relative flex h-16 w-16 items-center sm:h-24 sm:w-24 justify-center rounded-full bg-perla/80 text-acero ring-1 ring-acero/20 transition-all duration-300 group-hover:bg-acero group-hover:text-perla">
-                <Icon name={p.icon} className="h-8 w-8 transition-transform sm:h-12 sm:w-12 duration-500 group-hover:-rotate-6 group-hover:scale-110" strokeWidth={1.2} />
-              </span>
-              <h3 className="mt-4 text-base font-medium leading-snug text-profundo sm:mt-5 sm:text-lg">{p.name}</h3>
-              <span className="mt-3 block h-0.5 w-10 rounded bg-acero/60" />
-              <p className="mt-3 text-xs font-light leading-relaxed text-profundo/75 sm:text-sm">{p.text}</p>
+              {p.image ? (
+                <div className="relative aspect-square overflow-hidden">
+                  <Image
+                    src={p.image}
+                    alt={p.name}
+                    fill
+                    sizes="(min-width: 1024px) 300px, 50vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                </div>
+              ) : (
+                <span className="mx-auto mt-6 flex h-16 w-16 items-center justify-center rounded-full bg-perla/80 text-acero ring-1 ring-acero/20 sm:h-24 sm:w-24">
+                  <Icon name={p.icon} className="h-8 w-8 sm:h-12 sm:w-12" strokeWidth={1.2} />
+                </span>
+              )}
+              <div className="flex flex-1 flex-col items-center p-4 sm:p-6">
+                <h3 className="text-base font-medium leading-snug text-profundo sm:text-lg">{p.name}</h3>
+                <span className="mt-3 block h-0.5 w-10 rounded bg-acero/60" />
+                <p className="mt-3 text-xs font-light leading-relaxed text-profundo/75 sm:text-sm">{p.text}</p>
+              </div>
             </li>
           ))}
         </ul>
-        <p className="mt-6 flex items-center justify-center gap-2 text-center text-sm text-hielo/80">
-          <Icon name="pin" className="h-4 w-4 shrink-0 text-lavanda" />
-          {availability}
-        </p>
 
         {/* ¿Cómo funciona la beca solidaria? */}
         <div className="relative mt-20 overflow-hidden rounded-3xl border border-lavanda/25 shadow-2xl shadow-black/40">

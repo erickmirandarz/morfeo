@@ -281,12 +281,16 @@ export const merch = {
   slogan: "Llevá el descanso con vos, regalá una oportunidad de recuperarse",
   intro:
     "Nuestra línea oficial de merchandising: productos lindos y útiles que tienen que ver con la experiencia de descanso que ofrecemos.",
-  // TODO: si tienen fotos de los productos, se pueden agregar más adelante.
+  // Foto de toda la línea (cabecera de la sección)
+  heroImage: "/merch/linea-morfeo.jpg",
+  heroImageAlt:
+    "Línea solidaria Morfeo en tu Rutina: botella térmica, antifaz, ecovaso y bruma relajante con el logo de Morfeo",
+  // `image`: foto de cada producto (dentro de /public/merch). Si es null se muestra el ícono.
   products: [
-    { icon: "bottle", name: "Botellas térmicas", text: "Para acompañar tu hidratación durante todo el día." },
-    { icon: "sleepmask", name: "Antifaces de relajación", text: "Oscuridad total para descansar mejor, donde estés." },
-    { icon: "cup", name: "Ecovasos", text: "Reutilizables, para tus infusiones de cada día." },
-    { icon: "spray", name: "Kits de brumas aromáticas", text: "Aromas suaves para preparar el ambiente antes de dormir." },
+    { icon: "bottle", image: "/merch/botella.jpg", name: "Botellas térmicas", text: "Para acompañar tu hidratación durante todo el día." },
+    { icon: "sleepmask", image: "/merch/antifaz.jpg", name: "Antifaces de relajación", text: "Oscuridad total para descansar mejor, donde estés." },
+    { icon: "cup", image: "/merch/ecovaso.jpg", name: "Ecovasos", text: "Reutilizables, para tus infusiones de cada día." },
+    { icon: "spray", image: "/merch/bruma.jpg", name: "Kits de brumas aromáticas", text: "Aromas suaves para preparar el ambiente antes de dormir." },
   ],
   availability: "Disponibles en la recepción de MORFEO y a través de la App del centro.",
   scholarship: {
