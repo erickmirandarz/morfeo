@@ -157,52 +157,31 @@ export const missionVisionValues = {
 /* ------------------------------------------------------------------ */
 /* Nuestra Tecnología (mazo de tarjetas)                               */
 /* ------------------------------------------------------------------ */
-// TODO: reemplazar por el equipamiento real del centro.
 export const technology = {
   title: "Nuestra Tecnología",
-  subtitle: "Equipamiento moderno para evaluar y acompañar tu recuperación.",
-  // `image`: ruta de la foto dentro de /public (ej. "/tecnologia/camara.jpg").
-  // Si es null se muestra un recuadro con el ícono hasta que tengamos la foto.
+  subtitle: "Espacios diseñados para regular el sistema nervioso y recuperar el descanso.",
+  // `image`: ruta de la foto dentro de /public · `imagePosition`: qué parte de la foto
+  // se prioriza al recortarla (CSS object-position, ej. "center 70%").
+  // Para sumar otro equipo, copiá un bloque { … } y cambiá sus datos.
   items: [
     {
+      icon: "lotus",
+      title: "Cámaras de flotación",
+      subtitle: "Float tanks",
+      description:
+        "Son cápsulas o tanques con agua y sales de Epsom, donde la persona flota en un ambiente con muy pocos estímulos externos.",
+      tag: "Privación sensorial",
+      image: "/tecnologia/camara-flotacion.jpg",
+      imagePosition: "center 72%",
+    },
+    {
       icon: "bed",
-      title: "Monitoreo del sueño",
+      title: "Cámaras o cabinas de descanso",
       description:
-        "Registro de la calidad y las etapas del sueño para diseñar un tratamiento a medida.",
-      tag: "Sueño",
-      image: null, // TODO: agregar foto
-    },
-    {
-      icon: "bolt",
-      title: "Electroestimulación neuromuscular",
-      description:
-        "Activación muscular guiada para recuperar fuerza y control del movimiento.",
-      tag: "Neurorehabilitación",
-      image: null, // TODO: agregar foto
-    },
-    {
-      icon: "scale",
-      title: "Plataforma de equilibrio",
-      description:
-        "Evaluación y entrenamiento del balance y la postura para prevenir caídas.",
-      tag: "Evaluación",
-      image: null, // TODO: agregar foto
-    },
-    {
-      icon: "lungs",
-      title: "Equipos de kinesiología respiratoria",
-      description:
-        "Entrenamiento de la musculatura respiratoria y mejora de la capacidad pulmonar.",
-      tag: "Respiratoria",
-      image: null, // TODO: agregar foto
-    },
-    {
-      icon: "dumbbell",
-      title: "Gimnasio terapéutico",
-      description:
-        "Espacio equipado para ejercicios de fuerza, coordinación y reeducación de la marcha.",
-      tag: "Movimiento",
-      image: null, // TODO: agregar foto
+        "Son espacios acondicionados para favorecer el descanso, aunque no necesariamente producen privación sensorial.",
+      tag: "Descanso asistido",
+      image: "/tecnologia/cabina-descanso.jpg",
+      imagePosition: "center",
     },
   ],
 };

@@ -101,8 +101,9 @@ export default function TechnologyCarousel() {
                           src={item.image}
                           alt={item.title}
                           fill
-                          sizes="(min-width: 768px) 400px, 100vw"
-                          className="object-cover"
+                          sizes="(min-width: 768px) 420px, 100vw"
+                          className="object-cover transition-transform duration-700 hover:scale-105"
+                          style={{ objectPosition: item.imagePosition || "center" }}
                         />
                       ) : (
                         <div className="flex h-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-profundo to-acero/40 text-lavanda">
@@ -125,6 +126,9 @@ export default function TechnologyCarousel() {
                         </span>
                       </div>
                       <h3 className="mt-4 text-2xl font-normal text-perla sm:text-3xl">{item.title}</h3>
+                      {item.subtitle && (
+                        <p className="mt-1 font-brand text-sm italic tracking-wide text-lavanda">{item.subtitle}</p>
+                      )}
                       <span className="mt-4 block h-0.5 w-12 rounded bg-lavanda" />
                       <p className="mt-4 font-light leading-relaxed text-plata/85">{item.description}</p>
                     </div>
