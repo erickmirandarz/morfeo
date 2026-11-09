@@ -301,6 +301,23 @@ export const howItWorks = {
     { icon: "lotus", title: "Tratamiento", text: "Sesiones en cápsulas de privación sensorial con kinesiología neuro-somática y biofeedback." },
     { icon: "chart", title: "Seguimiento", text: "Medimos tu evolución con la Historia Clínica Electrónica y la App de monitoreo circadiano." },
   ],
+  // El día de tu sesión
+  session: {
+    eyebrow: "El día de tu sesión",
+    title: "Qué vas a vivir en Morfeo",
+    reminder: {
+      title: "No olvides venir con",
+      items: ["Ropa cómoda", "Traje de baño"],
+    },
+    // TODO: confirmar la duración de la sesión (¿40 minutos o 1 hora?) y agregarla acá.
+    duration: null,
+    moments: [
+      { icon: "hanger", title: "Vestuarios", text: "Primero pasás a los vestuarios, donde te damos una bata para tu mayor confort." },
+      { icon: "hand", title: "Masaje miofascial", text: "Recibís un masaje en las fascias musculares para relajar el tejido." },
+      { icon: "lotus", title: "Cápsulas", text: "Pasás a las cápsulas, pensadas para que te relajes por completo." },
+      { icon: "cup", title: "Volvé relajado", text: "Regresás a los vestuarios y te vas relajado a tu hogar, o te quedás a tomar algo en nuestro merendero." },
+    ],
+  },
 };
 
 /* ------------------------------------------------------------------ */

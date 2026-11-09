@@ -29,7 +29,60 @@ export function HowItWorks() {
           </li>
         ))}
       </ol>
+
+      <SessionDay />
     </section>
+  );
+}
+
+/** "El día de tu sesión": qué traer y cómo es la sesión, momento a momento. */
+function SessionDay() {
+  const { eyebrow, title, reminder, duration, moments } = howItWorks.session;
+  return (
+    <div className="card-dark relative mt-20 overflow-hidden p-6 sm:p-10">
+      <div className="pointer-events-none absolute -right-24 -top-24 h-64 w-64 rounded-full bg-acero/20 blur-3xl" />
+
+      <div className="relative flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
+        <div className="text-center lg:text-left">
+          <p className="text-xs uppercase tracking-[0.3em] text-lavanda">{eyebrow}</p>
+          <h3 className="mt-3 font-brand text-2xl font-light text-perla sm:text-3xl">{title}</h3>
+          {duration && <p className="mt-2 text-sm text-plata/70">Duración aproximada: {duration}</p>}
+        </div>
+
+        {/* Recordatorio */}
+        <div className="mx-auto flex flex-wrap items-center justify-center gap-3 rounded-2xl border border-lavanda/40 bg-noche/60 px-5 py-4 lg:mx-0">
+          <span className="text-sm font-normal text-hielo">{reminder.title}</span>
+          {reminder.items.map((item) => (
+            <span
+              key={item}
+              className="inline-flex items-center gap-1.5 rounded-full bg-acero/40 px-3 py-1 text-sm text-perla"
+            >
+              <Icon name="check" className="h-4 w-4 text-hielo" />
+              {item}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      {/* Momentos de la sesión */}
+      <ol className="relative mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {moments.map((m, i) => (
+          <li key={m.title} className="relative flex gap-4 lg:flex-col">
+            <span className="icon-ring h-14 w-14 shrink-0 bg-noche">
+              <Icon name={m.icon} className="h-6 w-6" strokeWidth={1.4} />
+            </span>
+            {i < moments.length - 1 && (
+              <span className="pointer-events-none absolute left-[4.25rem] right-0 top-7 hidden h-px bg-gradient-to-r from-lavanda/50 to-transparent lg:block" />
+            )}
+            <div>
+              <p className="font-brand text-xs tracking-[0.2em] text-lavanda">{String(i + 1).padStart(2, "0")}</p>
+              <h4 className="mt-1 text-base font-normal text-perla">{m.title}</h4>
+              <p className="mt-1.5 text-sm font-light leading-relaxed text-plata/80">{m.text}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
   );
 }
 
