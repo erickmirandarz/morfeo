@@ -1,0 +1,112 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 1200 500" preserveAspectRatio="xMaxYMax slice">
+  <!-- Ilustración original "Niños felices con las manos abiertas" — paleta Morfeo -->
+  <defs>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#899BCB" stop-opacity="0.55"/>
+      <stop offset="1" stop-color="#899BCB" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101D3A"/>
+      <stop offset="1" stop-color="#536B9A"/>
+    </linearGradient>
+
+    <!-- Mano abierta -->
+    <g id="hand" stroke="currentColor" stroke-width="5" stroke-linecap="round" fill="currentColor">
+      <circle r="9" stroke="none"/>
+      <line x1="-4" y1="-4" x2="-13" y2="-12"/>
+      <line x1="-2" y1="-6" x2="-7" y2="-19"/>
+      <line x1="1" y1="-6" x2="1" y2="-21"/>
+      <line x1="3" y1="-6" x2="9" y2="-18"/>
+      <line x1="6" y1="0" x2="16" y2="-5"/>
+    </g>
+
+    <!-- Rostro sonriente (ojos felices + sonrisa) -->
+    <g id="face" fill="none" stroke="#101D3A" stroke-width="2.6" stroke-linecap="round">
+      <path d="M-11 -3 q4 -5 8 0"/>
+      <path d="M3 -3 q4 -5 8 0"/>
+      <path d="M-8 6 q8 9 16 0"/>
+      <circle cx="-13" cy="4" r="3" fill="#F5F6FA" fill-opacity="0.35" stroke="none"/>
+      <circle cx="13" cy="4" r="3" fill="#F5F6FA" fill-opacity="0.35" stroke="none"/>
+    </g>
+
+    <!-- Brazos levantados -->
+    <g id="arms" fill="none" stroke="currentColor" stroke-width="11" stroke-linecap="round">
+      <path d="M-20 -128 Q-44 -168 -52 -204"/>
+      <path d="M20 -128 Q44 -168 52 -204"/>
+    </g>
+
+    <!-- Nene -->
+    <g id="boy" fill="currentColor">
+      <use href="#arms" xlink:href="#arms"/>
+      <use href="#hand" xlink:href="#hand" transform="translate(-54 -212) rotate(-18)"/>
+      <use href="#hand" xlink:href="#hand" transform="translate(54 -212) rotate(18) scale(-1 1)"/>
+      <rect x="-22" y="-56" width="13" height="56" rx="6.5"/>
+      <rect x="9" y="-56" width="13" height="56" rx="6.5"/>
+      <path d="M-29 -80 L29 -80 L31 -50 L4 -50 L0 -60 L-4 -50 L-31 -50 Z"/>
+      <path d="M-25 -136 Q0 -146 25 -136 L29 -76 L-29 -76 Z"/>
+      <circle cy="-166" r="24"/>
+      <path d="M-24 -172 Q-18 -196 4 -192 Q22 -192 25 -172 Q10 -182 -24 -172 Z"/>
+      <use href="#face" xlink:href="#face" transform="translate(0 -164)"/>
+    </g>
+
+    <!-- Nena -->
+    <g id="girl" fill="currentColor">
+      <use href="#arms" xlink:href="#arms"/>
+      <use href="#hand" xlink:href="#hand" transform="translate(-54 -212) rotate(-18)"/>
+      <use href="#hand" xlink:href="#hand" transform="translate(54 -212) rotate(18) scale(-1 1)"/>
+      <rect x="-17" y="-60" width="11" height="60" rx="5.5"/>
+      <rect x="6" y="-60" width="11" height="60" rx="5.5"/>
+      <path d="M-22 -134 Q0 -142 22 -134 L42 -56 Q0 -46 -42 -56 Z"/>
+      <circle cx="-28" cy="-170" r="11"/>
+      <circle cx="28" cy="-170" r="11"/>
+      <circle cy="-162" r="22"/>
+      <use href="#face" xlink:href="#face" transform="translate(0 -160)"/>
+    </g>
+
+    <!-- Corazón -->
+    <path id="heart" d="M0 6 C0 -2 -10 -4 -10 3 C-10 9 0 14 0 18 C0 14 10 9 10 3 C10 -4 0 -2 0 6 Z"/>
+    <!-- Estrella de 4 puntas -->
+    <path id="star" d="M0 -12 C1 -4 4 -1 12 0 C4 1 1 4 0 12 C-1 4 -4 1 -12 0 C-4 -1 -1 -4 0 -12 Z"/>
+  </defs>
+
+  <rect width="1200" height="500" fill="url(#bg)"/>
+  <g transform="translate(1200 48) scale(0.9) translate(-1180 0)">
+  <circle cx="880" cy="330" r="330" fill="url(#glow)"/>
+
+  <!-- Sombras en el piso -->
+  <g fill="#050D22" fill-opacity="0.35">
+    <ellipse cx="640" cy="482" rx="40" ry="7"/>
+    <ellipse cx="755" cy="482" rx="34" ry="6"/>
+    <ellipse cx="880" cy="482" rx="44" ry="8"/>
+    <ellipse cx="1005" cy="482" rx="38" ry="7"/>
+    <ellipse cx="1115" cy="482" rx="32" ry="6"/>
+  </g>
+
+  <!-- Niños (de atrás hacia adelante) -->
+  <use href="#girl" xlink:href="#girl" transform="translate(755 480) scale(0.92)" color="#899BCB"/>
+  <use href="#boy" xlink:href="#boy" transform="translate(1005 480) scale(1.02)" color="#899BCB"/>
+  <use href="#boy" xlink:href="#boy" transform="translate(640 480) scale(1.05)" color="#C5D2EE"/>
+  <use href="#girl" xlink:href="#girl" transform="translate(1115 480) scale(0.86)" color="#DCE2F0"/>
+  <use href="#girl" xlink:href="#girl" transform="translate(880 480) scale(1.14)" color="#F5F6FA"/>
+
+  <!-- Corazones y estrellas sobre las manos -->
+  <g fill="#F5F6FA">
+    <use href="#heart" xlink:href="#heart" transform="translate(880 165) scale(1.6)" fill-opacity="0.95"/>
+    <use href="#heart" xlink:href="#heart" transform="translate(700 205) scale(1.1)" fill-opacity="0.8"/>
+    <use href="#heart" xlink:href="#heart" transform="translate(1050 190) scale(1.2)" fill-opacity="0.85"/>
+    <use href="#heart" xlink:href="#heart" transform="translate(790 120) scale(0.8)" fill-opacity="0.6"/>
+    <use href="#heart" xlink:href="#heart" transform="translate(965 105) scale(0.9)" fill-opacity="0.65"/>
+    <use href="#star" xlink:href="#star" transform="translate(620 120) scale(1.1)" fill-opacity="0.8"/>
+    <use href="#star" xlink:href="#star" transform="translate(930 60) scale(0.8)" fill-opacity="0.7"/>
+    <use href="#star" xlink:href="#star" transform="translate(1140 110) scale(1)" fill-opacity="0.75"/>
+    <use href="#star" xlink:href="#star" transform="translate(830 230) scale(0.6)" fill-opacity="0.6"/>
+  </g>
+  <g fill="#C5D2EE" fill-opacity="0.7">
+    <circle cx="740" cy="160" r="3"/>
+    <circle cx="1000" cy="140" r="3.5"/>
+    <circle cx="660" cy="250" r="2.5"/>
+    <circle cx="1100" cy="250" r="3"/>
+    <circle cx="860" cy="80" r="2.5"/>
+  </g>
+  </g>
+</svg>

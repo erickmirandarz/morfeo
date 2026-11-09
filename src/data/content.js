@@ -331,8 +331,8 @@ export const donation = {
     "Hay personas que necesitan rehabilitación y no pueden acceder al tratamiento por su costo.",
     "Con tu donación, ayudás a que un paciente reciba la atención que necesita para volver a moverse y a soñar.",
   ],
-  // TODO: foto de fondo de niños felices (ej. "/donaciones/fondo.jpg" dentro de /public).
-  backgroundImage: null,
+  // Fondo: ilustración de niños felices. Se puede reemplazar por una foto (ej. "/donaciones/fondo.jpg").
+  backgroundImage: "/donaciones/ninos-felices.svg",
   cta: { label: "Donar", href: null }, // TODO: enlace de pago (ej. Mercado Pago) o página con datos bancarios
 };
 

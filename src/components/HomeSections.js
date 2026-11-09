@@ -1,4 +1,3 @@
-import Image from "next/image";
 import Link from "next/link";
 import { donation, howItWorks, membership } from "@/data/content";
 import { Stars, Waves } from "./Decor";
@@ -122,22 +121,21 @@ export function Donation() {
       <div className="relative overflow-hidden rounded-3xl border border-lavanda/25 shadow-2xl shadow-black/40">
         {/* Fondo: foto de niños felices (o degradé mientras no esté la foto) */}
         {backgroundImage ? (
-          <Image src={backgroundImage} alt="" fill sizes="100vw" className="object-cover" />
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={backgroundImage}
+            alt="Niños felices con las manos abiertas"
+            className="absolute inset-0 h-full w-full object-cover object-right-bottom"
+          />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-acero via-profundo to-noche" />
         )}
-        {/* Velo para que el texto se lea sobre la foto */}
-        <div className="absolute inset-0 bg-gradient-to-r from-noche/95 via-noche/75 to-noche/20" />
-        <Stars
-          stars={[
-            { className: "right-[20%] top-10 h-6 w-6" },
-            { className: "right-[12%] top-24 h-4 w-4", delay: "1s" },
-            { className: "right-[30%] bottom-24 h-3 w-3", delay: "2s" },
-          ]}
-        />
+        {/* Velo: oscurece solo el lado del texto para que se lea */}
+        <div className="absolute inset-0 bg-gradient-to-r from-noche via-noche/80 to-transparent md:via-noche/40" />
+        <div className="absolute inset-0 bg-noche/50 md:hidden" />
 
-        <div className="relative grid items-center gap-10 px-7 py-14 sm:px-12 sm:py-20 md:grid-cols-[minmax(0,3fr)_auto]">
-          <div className="max-w-xl">
+        <div className="relative px-7 py-14 sm:px-12 sm:py-20 md:min-h-[30rem]">
+          <div className="max-w-md">
             <span className="text-xs font-medium uppercase tracking-[0.35em] text-hielo">Donaciones</span>
             <h2 className="mt-4 text-4xl font-normal leading-tight text-perla sm:text-5xl">
               {title}
@@ -148,21 +146,21 @@ export function Donation() {
                 <p key={t}>{t}</p>
               ))}
             </div>
-          </div>
 
-          {/* Botón circular "Donar" */}
-          <a
-            href={cta.href || undefined}
-            role={cta.href ? undefined : "button"}
-            className="group relative mx-auto flex h-40 cursor-pointer w-40 flex-col items-center justify-center rounded-full bg-gradient-to-br from-acero to-lavanda text-perla shadow-2xl shadow-lavanda/30 transition-all duration-300 hover:scale-105"
-          >
-            <span className="absolute inset-0 animate-ping rounded-full border-2 border-lavanda/50 [animation-duration:2.5s]" />
-            <span className="absolute -inset-3 rounded-full border border-plata/30" />
-            <Icon name="gift" className="h-9 w-9 transition-transform duration-300 group-hover:-translate-y-0.5" strokeWidth={1.5} />
-            <span className="mt-2 text-xl font-medium tracking-wide">{cta.label}</span>
-          </a>
+            {/* Botón circular "Donar" */}
+            <a
+              href={cta.href || undefined}
+              role={cta.href ? undefined : "button"}
+              className="group relative mt-10 flex h-32 w-32 cursor-pointer flex-col items-center justify-center rounded-full bg-gradient-to-br from-acero to-lavanda text-perla shadow-2xl shadow-lavanda/30 transition-all duration-300 hover:scale-105"
+            >
+              <span className="absolute inset-0 animate-ping rounded-full border-2 border-lavanda/50 [animation-duration:2.5s]" />
+              <span className="absolute -inset-2.5 rounded-full border border-plata/30" />
+              <Icon name="gift" className="h-8 w-8 transition-transform duration-300 group-hover:-translate-y-0.5" strokeWidth={1.5} />
+              <span className="mt-1.5 text-lg font-medium tracking-wide">{cta.label}</span>
+            </a>
+          </div>
         </div>
-        <Waves className="h-20 opacity-60" />
+        <Waves className="h-16 opacity-50" />
       </div>
     </section>
   );
