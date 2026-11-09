@@ -16,8 +16,8 @@ export default function MissionVisionValues() {
   const [active, setActive] = useState(null);
 
   const growClass = (id) => {
-    if (active === null) return "md:flex-[1]";
-    return active === id ? "md:flex-[2.2]" : "md:flex-[0.7]";
+    if (active === null) return "lg:flex-[1]";
+    return active === id ? "lg:flex-[2.2]" : "lg:flex-[0.7]";
   };
 
   return (
@@ -25,7 +25,7 @@ export default function MissionVisionValues() {
       <SectionTitle eyebrow="Nuestra esencia" title={title} subtitle={subtitle} />
 
       <div
-        className="mt-14 flex flex-col gap-5 md:h-[22rem] md:flex-row"
+        className="mt-14 flex flex-col gap-5 lg:h-[24rem] lg:flex-row"
         onMouseLeave={() => setActive(null)}
       >
         {items.map((item) => {
@@ -38,14 +38,13 @@ export default function MissionVisionValues() {
               onMouseEnter={() => setActive(item.id)}
               onFocus={() => setActive(item.id)}
               onBlur={() => setActive(null)}
-              onClick={() => setActive(isActive ? null : item.id)}
               className={`group relative flex min-w-0 cursor-pointer flex-col overflow-hidden rounded-2xl border p-7 shadow-lg outline-none transition-all duration-500 ease-out ${growClass(
                 item.id
               )} ${
                 isActive
                   ? "border-lavanda/60 bg-gradient-to-br from-profundo via-profundo to-acero/50 shadow-acero/20"
                   : "border-lavanda/20 bg-profundo/70"
-              } ${isDimmed ? "md:opacity-70" : "opacity-100"} focus-visible:ring-2 focus-visible:ring-lavanda`}
+              } ${isDimmed ? "lg:opacity-70" : "opacity-100"} focus-visible:ring-2 focus-visible:ring-lavanda`}
             >
               {/* Brillo decorativo */}
               <div
@@ -62,22 +61,26 @@ export default function MissionVisionValues() {
                 <Icon name={item.icon} />
               </span>
 
-              <h3 className="mt-5 text-2xl font-normal text-perla">{item.title}</h3>
+              <h3 className={`mt-5 font-normal text-perla transition-all duration-300 ${isDimmed ? "text-2xl lg:text-xl" : "text-2xl"}`}>{item.title}</h3>
               {item.summary && (
-                <p className={`mt-3 leading-relaxed text-plata/85 ${isDimmed ? "md:line-clamp-3" : ""}`}>
+                <p
+                  className={`mt-3 leading-relaxed text-plata/85 ${
+                    isActive ? "" : isDimmed ? "lg:line-clamp-3" : "lg:line-clamp-5"
+                  }`}
+                >
                   {item.summary}
                 </p>
               )}
 
               {/* Lista de valores (siempre visible) */}
               {item.values && (
-                <ul className="mt-4 flex flex-wrap gap-2">
+                <ul className={`mt-4 flex flex-wrap ${isDimmed ? "gap-2 lg:gap-1.5" : "gap-2"}`}>
                   {item.values.map((v) => (
                     <li
                       key={v}
-                      className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors duration-300 ${
-                        isActive ? "border-hielo/60 bg-acero/40 text-perla" : "border-lavanda/40 text-hielo"
-                      }`}
+                      className={`rounded-full border transition-colors duration-300 ${
+                        isDimmed ? "px-3.5 py-1.5 text-sm lg:px-2.5 lg:py-1 lg:text-xs" : "px-3.5 py-1.5 text-sm"
+                      } ${isActive ? "border-hielo/60 bg-acero/40 text-perla" : "border-lavanda/40 text-hielo"}`}
                     >
                       {v}
                     </li>

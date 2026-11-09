@@ -125,16 +125,16 @@ export function Donation() {
           <img
             src={backgroundImage}
             alt="Niños felices con las manos abiertas"
-            className="absolute inset-0 h-full w-full object-cover object-right-bottom"
+            className="absolute inset-0 h-full w-full object-cover object-[70%_100%] md:object-right-bottom"
           />
         ) : (
           <div className="absolute inset-0 bg-gradient-to-br from-acero via-profundo to-noche" />
         )}
         {/* Velo: oscurece solo el lado del texto para que se lea */}
-        <div className="absolute inset-0 bg-gradient-to-r from-noche via-noche/80 to-transparent md:via-noche/40" />
-        <div className="absolute inset-0 bg-noche/50 md:hidden" />
+        {/* En celular: velo de arriba hacia abajo (los niños quedan visibles abajo) */}
+        <div className="absolute inset-0 bg-gradient-to-b from-noche via-noche/85 to-transparent md:bg-gradient-to-r md:via-noche/40" />
 
-        <div className="relative px-7 py-14 sm:px-12 sm:py-20 md:min-h-[30rem]">
+        <div className="relative px-7 pt-14 pb-72 sm:px-12 sm:pt-20 md:min-h-[30rem] md:pb-20">
           <div className="max-w-md">
             <span className="text-xs font-medium uppercase tracking-[0.35em] text-hielo">{eyebrow}</span>
             <h2 className="mt-4 text-4xl font-normal leading-tight text-perla sm:text-5xl">

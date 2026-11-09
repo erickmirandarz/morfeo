@@ -106,7 +106,7 @@ function Capsule({ progressRef, pointerRef, reducedMotion }) {
   const glowMats = useRef([]);
   const state = useRef({ x: 0, y: 0, rotY: 0, rotX: 0, scale: 1, lid: 0, glow: 0, init: false });
   const { size } = useThree();
-  const frames = size.width < 768 ? KEYFRAMES_MOBILE : KEYFRAMES_DESKTOP;
+  const frames = size.width < 1024 ? KEYFRAMES_MOBILE : KEYFRAMES_DESKTOP;
 
   // Geometrías (semiesferas que forman el "huevo")
   const lower = useMemo(() => new THREE.SphereGeometry(1, 96, 48, 0, Math.PI * 2, Math.PI / 2, Math.PI / 2), []);

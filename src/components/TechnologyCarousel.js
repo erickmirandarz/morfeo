@@ -74,7 +74,7 @@ export default function TechnologyCarousel() {
 
         <div className="mt-14 flex items-center gap-3 sm:gap-6">
           {/* Flecha anterior */}
-          <ArrowButton dir="prev" onClick={() => move("prev")} />
+          <ArrowButton dir="prev" onClick={() => move("prev")} className="hidden sm:flex" />
 
           {/* Mazo */}
           <div
@@ -139,11 +139,13 @@ export default function TechnologyCarousel() {
           </div>
 
           {/* Flecha siguiente */}
-          <ArrowButton dir="next" onClick={() => move("next")} />
+          <ArrowButton dir="next" onClick={() => move("next")} className="hidden sm:flex" />
         </div>
 
         {/* Indicadores */}
-        <div className="mt-2 flex justify-center gap-2">
+        <div className="mt-2 flex items-center justify-center gap-2">
+          {/* En celular las flechas van acá abajo, para que la tarjeta use todo el ancho */}
+          <ArrowButton dir="prev" onClick={() => move("prev")} className="mr-3 flex sm:hidden" />
           {items.map((item, i) => (
             <button
               key={item.title}
@@ -154,20 +156,21 @@ export default function TechnologyCarousel() {
               }`}
             />
           ))}
+          <ArrowButton dir="next" onClick={() => move("next")} className="ml-3 flex sm:hidden" />
         </div>
       </div>
     </section>
   );
 }
 
-function ArrowButton({ dir, onClick }) {
+function ArrowButton({ dir, onClick, className = "" }) {
   const isNext = dir === "next";
   return (
     <button
       type="button"
       onClick={onClick}
       aria-label={isNext ? "Siguiente tarjeta" : "Tarjeta anterior"}
-      className={`group relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-lavanda/50 text-perla shadow-lg transition-all duration-300 hover:scale-110 hover:border-hielo hover:shadow-lavanda/30 sm:h-14 sm:w-14 ${
+      className={`group relative ${className} h-12 w-12 shrink-0 items-center justify-center rounded-full border border-lavanda/50 text-perla shadow-lg transition-all duration-300 hover:scale-110 hover:border-hielo hover:shadow-lavanda/30 sm:h-14 sm:w-14 ${
         isNext ? "bg-gradient-to-br from-acero to-lavanda" : "bg-profundo/80"
       }`}
     >

@@ -22,10 +22,10 @@ function stageOpacity(p, i) {
 
 /* Ubicación del texto de cada etapa (escritorio): izquierda, derecha, izquierda, centro */
 const PANEL_ALIGN = [
-  "md:items-center md:justify-start md:text-left",
-  "md:items-center md:justify-end md:text-left",
-  "md:items-center md:justify-start md:text-left",
-  "md:items-end md:justify-center md:text-center md:pb-14",
+  "lg:items-center lg:justify-start lg:text-left",
+  "lg:items-center lg:justify-end lg:text-left",
+  "lg:items-center lg:justify-start lg:text-left",
+  "lg:items-end lg:justify-center lg:text-center lg:pb-14",
 ];
 
 function StepText({ step, center }) {
@@ -36,11 +36,11 @@ function StepText({ step, center }) {
         {step.title}
         <span className="block text-lavanda">{step.highlight}</span>
       </h2>
-      <p className={`mt-5 max-w-md text-base font-light leading-relaxed text-plata/85 sm:text-lg ${center ? "mx-auto" : ""}`}>
+      <p className={`mx-auto mt-5 max-w-md text-base font-light leading-relaxed text-plata/85 sm:text-lg ${center ? "" : "lg:mx-0"}`}>
         {step.text}
       </p>
       {step.primaryCta && (
-        <div className={`mt-8 flex flex-wrap gap-4 ${center ? "justify-center" : ""}`}>
+        <div className={`mt-8 flex flex-wrap justify-center gap-4 ${center ? "" : "lg:justify-start"}`}>
           <a href={step.primaryCta.href} className="btn-primary group">
             <Icon name="calendar" className="h-4 w-4" />
             {step.primaryCta.label}
@@ -119,9 +119,11 @@ export default function CapsuleHero() {
             <p
               key={w}
               aria-hidden="true"
-              className="pointer-events-none absolute inset-x-0 top-1/2 select-none whitespace-nowrap text-center font-brand text-[19vw] font-light leading-none tracking-[0.06em] text-transparent md:text-[15vw]"
+              className="pointer-events-none absolute inset-x-0 top-1/2 select-none whitespace-nowrap text-center font-brand font-light leading-none tracking-[0.04em] text-transparent"
               style={{
-                WebkitTextStroke: "1px rgba(197, 210, 238, 0.28)",
+                // Tamaño que entra siempre en el ancho de la pantalla, según la cantidad de letras
+                fontSize: `min(14vw, ${(82 / (w.length * 0.75)).toFixed(2)}vw)`,
+                WebkitTextStroke: "1.5px rgba(197, 210, 238, 0.38)",
                 opacity: o,
                 transform: `translateY(calc(-50% + ${(progress - i / (STAGES - 1)) * -140}px))`,
               }}
@@ -137,7 +139,7 @@ export default function CapsuleHero() {
         </div>
 
         {/* Degradé inferior para leer el texto en celular */}
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-noche via-noche/80 to-transparent md:hidden" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-noche via-noche/80 to-transparent lg:hidden" />
 
         {/* Textos de cada etapa */}
         {Array.from({ length: STAGES }).map((_, i) => {
@@ -152,7 +154,7 @@ export default function CapsuleHero() {
               style={{ opacity: o, pointerEvents: o > 0.5 ? "auto" : "none" }}
               aria-hidden={o < 0.5}
             >
-              <div className={`w-full md:w-[46%] ${center ? "md:w-[60%]" : ""}`} style={{ transform: `translateY(${shift}px)` }}>
+              <div className={`w-full max-w-xl lg:max-w-none ${center ? "lg:w-[60%]" : "lg:w-[46%]"}`} style={{ transform: `translateY(${shift}px)` }}>
                 {i === 0 ? (
                   <>
                     <span className="text-xs font-medium uppercase tracking-[0.3em] text-hielo">{hero.eyebrow}</span>
@@ -160,8 +162,8 @@ export default function CapsuleHero() {
                       {hero.title}
                       <span className="block text-lavanda">{hero.highlight}</span>
                     </h1>
-                    <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-plata/85 md:mx-0">{hero.subtitle}</p>
-                    <div className="mt-9 flex flex-wrap justify-center gap-4 md:justify-start">
+                    <p className="mx-auto mt-6 max-w-xl text-lg font-light leading-relaxed text-plata/85 lg:mx-0">{hero.subtitle}</p>
+                    <div className="mt-9 flex flex-wrap justify-center gap-4 lg:justify-start">
                       <a href={hero.primaryCta.href} className="btn-primary group">
                         {hero.primaryCta.label}
                         <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -198,7 +200,7 @@ export default function CapsuleHero() {
 
         {/* Invitación a hacer scroll */}
         <div
-          className="pointer-events-none absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.3em] text-hielo/80 md:flex"
+          className="pointer-events-none absolute bottom-24 left-1/2 z-10 hidden -translate-x-1/2 flex-col items-center gap-2 text-xs uppercase tracking-[0.3em] text-hielo/80 lg:flex"
           style={{ opacity: Math.max(0, 1 - progress * 12) }}
         >
           <span className="flex h-9 w-6 justify-center rounded-full border border-hielo/50 pt-1.5">
