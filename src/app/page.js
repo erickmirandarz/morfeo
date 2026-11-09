@@ -94,17 +94,27 @@ function Hero() {
 /* ------------------------------------------------------------------ */
 function Pillars() {
   return (
-    <section className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-6xl px-4 pt-14 pb-16 sm:px-6 lg:px-8">
       <SectionTitle eyebrow={pillars.title} />
-      <ul className="mt-10 grid grid-cols-2 gap-8 sm:grid-cols-4">
-        {pillars.items.map((p) => (
-          <li key={p.label} className="group flex flex-col items-center text-center">
-            <span className="icon-ring h-24 w-24 group-hover:-translate-y-1 group-hover:border-hielo group-hover:bg-acero/25 group-hover:shadow-lg group-hover:shadow-lavanda/20">
-              <Icon name={p.icon} className="h-10 w-10" strokeWidth={1.4} />
-            </span>
-            <span className="mt-4 text-sm font-light text-plata sm:text-base">{p.label}</span>
-          </li>
-        ))}
+      <ul className="mt-10 grid grid-cols-2 gap-y-10 sm:grid-cols-4">
+        {pillars.items.map((p) => {
+          // Etiqueta en dos líneas, como en el manual de marca ("Tecnología / y ciencia")
+          const words = p.label.split(" ");
+          const first = words[0];
+          const rest = words.slice(1).join(" ");
+          return (
+            <li key={p.label} className="group flex flex-col items-center text-center">
+              <span className="icon-ring relative h-28 w-28 border-lavanda bg-gradient-to-b from-profundo to-noche shadow-lg shadow-black/30 group-hover:-translate-y-1 group-hover:border-hielo group-hover:shadow-lavanda/25 sm:h-32 sm:w-32">
+                <span className="absolute inset-2 rounded-full border border-lavanda/15" />
+                <Icon name={p.icon} className="h-14 w-14 sm:h-[4.5rem] sm:w-[4.5rem]" strokeWidth={1.1} />
+              </span>
+              <span className="mt-5 text-base font-light leading-snug text-plata sm:text-lg">
+                {first}
+                {rest && <span className="block">{rest}</span>}
+              </span>
+            </li>
+          );
+        })}
       </ul>
     </section>
   );

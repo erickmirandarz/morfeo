@@ -71,7 +71,7 @@ export const pillars = {
   items: [
     { icon: "brain", label: "Tecnología y ciencia" },
     { icon: "heart", label: "Cuidado humano" },
-    { icon: "bed", label: "Descanso y recuperación" },
+    { icon: "bed", label: "Descanso saludable" },
     { icon: "lotus", label: "Bienestar integral" },
   ],
 };
