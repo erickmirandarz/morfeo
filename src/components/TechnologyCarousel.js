@@ -20,15 +20,25 @@ export default function TechnologyCarousel() {
   const n = items.length;
   const [index, setIndex] = useState(0); // tarjeta que está adelante
   const [leaving, setLeaving] = useState(null); // "next" | "prev" | null
+  // Tarjeta que acaba de salir: se ubica al fondo sin moverse (solo aparece)
+  const [recycled, setRecycled] = useState(null);
+  const indexRef = useRef(0);
   const timer = useRef(null);
+  const timer2 = useRef(null);
+
+  useEffect(() => {
+    indexRef.current = index;
+  }, [index]);
 
   const move = useCallback(
     (dir) => {
       if (leaving) return;
       setLeaving(dir);
       timer.current = setTimeout(() => {
+        setRecycled(indexRef.current);
         setIndex((i) => (i + (dir === "next" ? 1 : -1) + n) % n);
         setLeaving(null);
+        timer2.current = setTimeout(() => setRecycled(null), 700);
       }, LEAVE_MS);
     },
     [leaving, n]
@@ -38,7 +48,13 @@ export default function TechnologyCarousel() {
     if (i !== index && !leaving) setIndex(i);
   };
 
-  useEffect(() => () => clearTimeout(timer.current), []);
+  useEffect(
+    () => () => {
+      clearTimeout(timer.current);
+      clearTimeout(timer2.current);
+    },
+    []
+  );
 
   // Flechas del teclado cuando el mazo tiene el foco
   const onKeyDown = (e) => {
@@ -91,7 +107,13 @@ export default function TechnologyCarousel() {
                   key={item.title}
                   aria-hidden={pos !== 0}
                   className="card-dark bg-profundo [grid-area:1/1] origin-bottom transition-all ease-out"
-                  style={{ ...cardStyle(pos), transitionDuration: `${LEAVE_MS}ms` }}
+                  style={{
+                    ...cardStyle(pos),
+                    // La que vuelve al fondo salta a su lugar (invisible) y solo se desvanece hacia adentro
+                    ...(i === recycled
+                      ? { transitionProperty: "opacity, filter", transitionDuration: "450ms", transitionDelay: "80ms" }
+                      : { transitionDuration: `${LEAVE_MS}ms` }),
+                  }}
                 >
                   <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-center md:gap-10">
                     {/* Foto */}
