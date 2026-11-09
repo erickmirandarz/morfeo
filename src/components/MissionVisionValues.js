@@ -63,23 +63,40 @@ export default function MissionVisionValues() {
               </span>
 
               <h3 className="mt-5 text-2xl font-normal text-perla">{item.title}</h3>
-              <p className={`mt-3 leading-relaxed text-plata/85 ${isDimmed ? "md:line-clamp-3" : ""}`}>
-                {item.summary}
-              </p>
+              {item.summary && (
+                <p className={`mt-3 leading-relaxed text-plata/85 ${isDimmed ? "md:line-clamp-3" : ""}`}>
+                  {item.summary}
+                </p>
+              )}
 
-              {/* Detalle que aparece al expandirse */}
-              <ul
-                className={`space-y-2 overflow-hidden text-sm text-hielo transition-all duration-500 ${
-                  isActive ? "mt-5 max-h-60 opacity-100" : "max-h-0 opacity-0"
-                }`}
-              >
-                {item.details.map((d) => (
-                  <li key={d} className="flex gap-2">
-                    <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-lavanda" />
-                    {d}
-                  </li>
-                ))}
-              </ul>
+              {/* Lista de valores (siempre visible) */}
+              {item.values && (
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {item.values.map((v) => (
+                    <li
+                      key={v}
+                      className={`rounded-full border px-3.5 py-1.5 text-sm transition-colors duration-300 ${
+                        isActive ? "border-hielo/60 bg-acero/40 text-perla" : "border-lavanda/40 text-hielo"
+                      }`}
+                    >
+                      {v}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
+              {/* Texto que aparece al expandirse */}
+              {item.details?.length > 0 && (
+                <div
+                  className={`space-y-2 overflow-hidden leading-relaxed text-hielo transition-all duration-500 ${
+                    isActive ? "mt-4 max-h-60 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  {item.details.map((d) => (
+                    <p key={d}>{d}</p>
+                  ))}
+                </div>
+              )}
             </article>
           );
         })}

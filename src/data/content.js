@@ -123,17 +123,17 @@ export const about = {
 export const missionVisionValues = {
   title: "Misión, Visión y Valores",
   subtitle: "Los principios que guían nuestro trabajo todos los días.",
+  // `summary`: texto visible siempre · `details`: texto que aparece al pasar el mouse
+  // `values`: lista de valores (se muestran como etiquetas)
   items: [
     {
       id: "mision",
       icon: "target",
       title: "Misión",
       summary:
-        "Acompañar a cada persona en su recuperación neurológica, física y del descanso, con tratamientos integrales y personalizados.",
+        "Somos un centro clínico especializado en kinesiología neuro-somática y cronobiología, dedicado al tratamiento integral de personas con trastornos del sueño y dolor crónico.",
       details: [
-        "Unir la evidencia científica con un trato cercano y humano.",
-        "Diseñar planes a medida de cada paciente y su familia.",
-        "Promover el descanso como parte esencial de la salud.",
+        "Utilizamos tecnologías de privación sensorial y descanso asistido para regular el sistema nervioso y lograr la recuperación funcional del paciente.",
       ],
     },
     {
@@ -141,23 +141,15 @@ export const missionVisionValues = {
       icon: "eye",
       title: "Visión",
       summary:
-        "Ser un centro de referencia en rehabilitación neuro-somática y del sueño en la región.",
-      details: [
-        "Incorporar tecnología e innovación de forma constante.",
-        "Formar un equipo interdisciplinario en permanente actualización.",
-        "Hacer la rehabilitación accesible para más personas.",
-      ],
+        "Aspiramos a ser el centro referente en cronobiología y neuro-rehabilitación del sueño en el NOA, transformando el abordaje terapéutico al posicionar al descanso regulado como la herramienta central para la recuperación física, cognitiva y laboral.",
+      details: [],
     },
     {
       id: "valores",
       icon: "heart",
-      title: "Valores",
-      summary: "Empatía, compromiso, ética profesional y respeto por cada historia.",
-      details: [
-        "Cuidado humano y trato personalizado.",
-        "Trabajo en equipo y responsabilidad social.",
-        "Mejora continua y excelencia profesional.",
-      ],
+      title: "Nuestros Valores",
+      values: ["Compromiso", "Excelencia Científica", "Empatía", "Trabajo Interdisciplinario"],
+      details: [],
     },
   ],
 };
