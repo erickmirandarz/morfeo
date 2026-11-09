@@ -35,7 +35,8 @@ export default function TechnologyCarousel() {
       if (leaving) return;
       setLeaving(dir);
       timer.current = setTimeout(() => {
-        setRecycled(indexRef.current);
+        // Solo hacia adelante: la que salió se ubica al fondo sin desplazarse
+        if (dir === "next") setRecycled(indexRef.current);
         setIndex((i) => (i + (dir === "next" ? 1 : -1) + n) % n);
         setLeaving(null);
         timer2.current = setTimeout(() => setRecycled(null), 700);
@@ -68,8 +69,16 @@ export default function TechnologyCarousel() {
       // La de adelante baja y se desvanece para irse al fondo
       return { transform: "translateY(55%) scale(0.9) rotate(-2deg)", opacity: 0, zIndex: n + 1 };
     }
-    if (pos === 0 && leaving === "prev") {
-      return { transform: "translateY(-20%) scale(0.95)", opacity: 0, zIndex: n + 1 };
+    if (pos === n - 1 && leaving === "prev") {
+      // Hacia atrás: la última tarjeta se "saca" por debajo del mazo (opaca, sin transparencias)
+      // y en el paso siguiente sube por encima de la de adelante
+      return {
+        transform: "translateY(62%) scale(0.95)",
+        opacity: 1,
+        filter: "brightness(0.85)",
+        zIndex: 0,
+        pointerEvents: "none",
+      };
     }
     // Mientras sale la de adelante, las demás avanzan un lugar
     const p = leaving === "next" ? Math.max(pos - 1, 0) : pos;
@@ -112,7 +121,11 @@ export default function TechnologyCarousel() {
                     // La que vuelve al fondo salta a su lugar (invisible) y solo se desvanece hacia adentro
                     ...(i === recycled
                       ? { transitionProperty: "opacity, filter", transitionDuration: "450ms", transitionDelay: "80ms" }
-                      : { transitionDuration: `${LEAVE_MS}ms` }),
+                      : pos === 0 && leaving === "next"
+                        ? // Se vuelve transparente rápido para no superponerse con la de atrás
+                          { transition: `transform ${LEAVE_MS}ms ease-out, opacity 200ms ease-out` }
+                        : // z-index no se anima: el orden de las capas cambia al instante
+                          { transitionProperty: "transform, opacity, filter", transitionDuration: `${LEAVE_MS}ms` }),
                   }}
                 >
                   <div className="grid gap-6 p-5 sm:p-7 md:grid-cols-[minmax(0,2fr)_minmax(0,3fr)] md:items-center md:gap-10">
