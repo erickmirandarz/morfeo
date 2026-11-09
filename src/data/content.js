@@ -229,6 +229,114 @@ export const specialists = {
 };
 
 /* ------------------------------------------------------------------ */
+/* Inicio — ¿Cómo funciona?                                            */
+/* ------------------------------------------------------------------ */
+// TODO: reemplazar por el texto definitivo.
+export const howItWorks = {
+  title: "¿Cómo funciona?",
+  subtitle: "Un recorrido simple, acompañado en cada etapa.",
+  steps: [
+    {
+      icon: "mail",
+      title: "Agendá tu turno",
+      text: "Elegí un día en el calendario y contanos brevemente qué te pasa.",
+    },
+    {
+      icon: "user",
+      title: "Evaluación inicial",
+      text: "Un especialista analiza tu caso y define los objetivos del tratamiento.",
+    },
+    {
+      icon: "dumbbell",
+      title: "Plan personalizado",
+      text: "Diseñamos sesiones a tu medida con la tecnología del centro.",
+    },
+    {
+      icon: "chart",
+      title: "Seguimiento",
+      text: "Medimos tu progreso y ajustamos el plan hasta el alta.",
+    },
+  ],
+};
+
+/* ------------------------------------------------------------------ */
+/* Inicio — Agendá tu turno                                            */
+/* ------------------------------------------------------------------ */
+export const booking = {
+  title: "Agendá tu turno",
+  subtitle: "Elegí el día y el horario, completá tus datos y nos comunicamos con vos.",
+  // Días de atención: 0 = domingo, 1 = lunes … 6 = sábado
+  workingDays: [1, 2, 3, 4, 5],
+  timeSlots: ["08:00", "09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"],
+  genderOptions: ["Mujer", "Hombre", "Otro / Prefiero no decirlo"],
+  lookingForOptions: [
+    "Rehabilitación post-quirúrgica",
+    "Dolor o lesión",
+    "Evaluación",
+    "Otro",
+  ],
+  successMessage:
+    "¡Gracias! Recibimos tu solicitud. Nos vamos a comunicar para confirmar el turno.",
+};
+
+/* ------------------------------------------------------------------ */
+/* Inicio — Hacete socio                                               */
+/* ------------------------------------------------------------------ */
+// TODO: definir precios y beneficios reales.
+export const membership = {
+  title: "Hacete socio",
+  subtitle: "Accedé a nuestro centro con una suscripción mensual o anual.",
+  plans: [
+    {
+      id: "mensual",
+      name: "Plan Mensual",
+      price: "$ 00.000",
+      period: "/ mes",
+      description: "Ideal para empezar o para tratamientos cortos.",
+      features: [
+        "Acceso a sesiones durante el mes",
+        "Evaluación inicial incluida",
+        "Seguimiento de tu progreso",
+      ],
+      cta: { label: "Quiero el plan mensual", href: "#turno" },
+      highlighted: false,
+    },
+    {
+      id: "anual",
+      name: "Plan Anual",
+      price: "$ 000.000",
+      period: "/ año",
+      badge: "Más conveniente",
+      description: "Asistí todo el año y ahorrá frente al plan mensual.",
+      features: [
+        "Acceso a sesiones todo el año",
+        "Evaluaciones periódicas",
+        "Prioridad en la agenda de turnos",
+        "Seguimiento personalizado",
+      ],
+      cta: { label: "Quiero el plan anual", href: "#turno" },
+      highlighted: true,
+    },
+  ],
+};
+
+/* ------------------------------------------------------------------ */
+/* Inicio — Un sueño, una oportunidad (donaciones)                     */
+/* ------------------------------------------------------------------ */
+export const donation = {
+  title: "Un sueño,",
+  highlight: "una oportunidad",
+  // TODO: reemplazar por el texto definitivo.
+  text: [
+    "Hay personas que necesitan rehabilitación y no pueden acceder al tratamiento por su costo.",
+    "Con tu donación, ayudás a que un paciente reciba la atención que necesita para volver a moverse y a soñar.",
+  ],
+  // TODO: foto de fondo de niños felices (ej. "/donaciones/fondo.jpg" dentro de /public).
+  backgroundImage: null,
+  cta: { label: "Donar", href: null }, // TODO: enlace de pago (ej. Mercado Pago) o página con datos bancarios
+};
+
+/* ------------------------------------------------------------------ */
 /* Investigación                                                       */
 /* ------------------------------------------------------------------ */
 export const research = {

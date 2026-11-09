@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import BookingForm from "@/components/BookingForm";
 import { Stars, Waves } from "@/components/Decor";
+import { Donation, HowItWorks, Membership } from "@/components/HomeSections";
 import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import SectionTitle from "@/components/SectionTitle";
@@ -203,6 +205,10 @@ export default function HomePage() {
       <MissionVisionValues />
       <TechnologyCarousel />
       <Specialists />
+      <HowItWorks />
+      <BookingForm />
+      <Membership />
+      <Donation />
     </>
   );
 }
