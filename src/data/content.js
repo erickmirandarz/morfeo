@@ -147,6 +147,8 @@ export const technology = {
   title: "Nuestra Tecnología",
   subtitle:
     "Equipamiento y recursos que utilizamos en la enseñanza y en la práctica clínica.",
+  // `image`: ruta de la foto dentro de /public (ej. "/tecnologia/camara.jpg").
+  // Si es null se muestra un recuadro con el ícono hasta que tengamos la foto.
   items: [
     {
       icon: "bolt",
@@ -154,6 +156,7 @@ export const technology = {
       description:
         "Activación del cuádriceps y glúteo medio en fases tempranas para reducir la inhibición muscular artrogénica.",
       tag: "Electroterapia",
+      image: null, // TODO: agregar foto
     },
     {
       icon: "scale",
@@ -161,6 +164,7 @@ export const technology = {
       description:
         "Evaluación de la distribución de carga y del control postural durante la progresión de la descarga de peso.",
       tag: "Evaluación",
+      image: null, // TODO: agregar foto
     },
     {
       icon: "dumbbell",
@@ -168,6 +172,7 @@ export const technology = {
       description:
         "Reeducación de la marcha con progresión de ayudas técnicas: andador, bastones y marcha independiente.",
       tag: "Marcha",
+      image: null, // TODO: agregar foto
     },
     {
       icon: "chart",
@@ -175,6 +180,7 @@ export const technology = {
       description:
         "Cuantificación objetiva de la fuerza de abductores, extensores y flexores de cadera para guiar la progresión.",
       tag: "Evaluación",
+      image: null, // TODO: agregar foto
     },
     {
       icon: "cube",
@@ -182,6 +188,7 @@ export const technology = {
       description:
         "Modelos de cadera con componentes acetabulares y femorales para comprender abordajes y precauciones.",
       tag: "Docencia",
+      image: null, // TODO: agregar foto
     },
   ],
 };
