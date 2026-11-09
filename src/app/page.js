@@ -1,12 +1,13 @@
 import Image from "next/image";
 import BookingForm from "@/components/BookingForm";
-import { Stars, Waves } from "@/components/Decor";
+import CapsuleHero from "@/components/capsule/CapsuleHero";
+import { Stars } from "@/components/Decor";
 import { Donation, HowItWorks, Membership } from "@/components/HomeSections";
 import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import SectionTitle from "@/components/SectionTitle";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
-import { about, brand, hero, pillars, services, specialists } from "@/data/content";
+import { about, brand, pillars, services, specialists } from "@/data/content";
 
 const initials = (name) =>
   name
@@ -15,65 +16,6 @@ const initials = (name) =>
     .slice(0, 2)
     .map((w) => w[0])
     .join("");
-
-/* ------------------------------------------------------------------ */
-/* Inicio: banner con emblema y ondas                                  */
-/* ------------------------------------------------------------------ */
-function Hero() {
-  return (
-    <section id="inicio" className="relative scroll-mt-20 px-4 pt-28 pb-6 sm:px-6 lg:px-8">
-      <div className="pointer-events-none absolute -top-40 right-0 h-[32rem] w-[32rem] rounded-full bg-acero/20 blur-3xl" />
-
-      <div className="card-dark relative mx-auto max-w-7xl rounded-3xl">
-        <Stars
-          stars={[
-            { className: "left-[45%] top-10 h-4 w-4" },
-            { className: "left-[58%] top-24 h-2 w-2", delay: "1s" },
-            { className: "right-[8%] top-16 h-6 w-6", delay: "2s" },
-            { className: "right-[20%] top-[45%] h-3 w-3", delay: "0.5s" },
-          ]}
-        />
-
-        <div className="relative grid items-center gap-6 px-7 pt-12 pb-28 sm:px-12 lg:grid-cols-2 lg:pt-16 lg:pb-32">
-          <div className="relative z-10">
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-hielo">{hero.eyebrow}</span>
-            <h1 className="mt-5 text-4xl font-normal leading-tight tracking-tight text-perla sm:text-5xl xl:text-6xl">
-              {hero.title}
-              <span className="block text-lavanda">{hero.highlight}</span>
-            </h1>
-            <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-plata/85">{hero.subtitle}</p>
-
-            <div className="mt-9 flex flex-wrap gap-4">
-              <a href={hero.primaryCta.href} className="btn-primary group">
-                {hero.primaryCta.label}
-                <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </a>
-              <a href={hero.secondaryCta.href} className="btn-secondary">
-                <Icon name="calendar" className="h-4 w-4" />
-                {hero.secondaryCta.label}
-              </a>
-            </div>
-          </div>
-
-          <div className="relative mx-auto hidden w-full max-w-md lg:block">
-            <div className="absolute inset-10 rounded-full bg-lavanda/20 blur-3xl" />
-            <Image
-              src={brand.emblem}
-              alt={`${brand.name} — emblema`}
-              width={550}
-              height={550}
-              priority
-              className="relative"
-              style={{ animation: "floaty 7s ease-in-out infinite" }}
-            />
-          </div>
-        </div>
-
-        <Waves className="h-28 sm:h-36" />
-      </div>
-    </section>
-  );
-}
 
 /* ------------------------------------------------------------------ */
 /* Pilares: íconos en círculo (debajo del logo y el nombre)            */
@@ -223,7 +165,7 @@ function Specialists() {
 export default function HomePage() {
   return (
     <>
-      <Hero />
+      <CapsuleHero />
       <Pillars />
       <Services />
       <About />

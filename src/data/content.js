@@ -57,6 +57,41 @@ export const hero = {
 };
 
 /* ------------------------------------------------------------------ */
+/* Inicio — Recorrido de la cápsula 3D (aparece al hacer scroll)       */
+/* La primera etapa es el `hero` de arriba; estas son las siguientes.  */
+/* `word`: palabra gigante que se ve detrás de la cápsula.             */
+/* ------------------------------------------------------------------ */
+export const capsuleStory = {
+  heroWord: "MORFEO",
+  scrollHint: "Deslizá para descubrir",
+  steps: [
+    {
+      word: "DESCONECTÁ",
+      eyebrow: "Privación sensorial",
+      title: "Un espacio con",
+      highlight: "muy pocos estímulos",
+      text: "Sin luz, sin ruido y sin apuro: un ambiente pensado para que el sistema nervioso pueda regularse.",
+    },
+    {
+      word: "FLOTÁ",
+      eyebrow: "Cámaras de flotación",
+      title: "Agua y sales de Epsom",
+      highlight: "que te sostienen",
+      text: "Flotás sin esfuerzo, el cuerpo se suelta y la mente descansa.",
+    },
+    {
+      word: "DESCANSÁ",
+      eyebrow: "Cronobiología",
+      title: "El descanso como",
+      highlight: "parte del tratamiento",
+      text: "Combinamos kinesiología neuro-somática y cronobiología para tu recuperación física, cognitiva y laboral.",
+      primaryCta: { label: "Agendá tu turno", href: "#turno" },
+      secondaryCta: { label: "Ver la tecnología", href: "#tecnologia" },
+    },
+  ],
+};
+
+/* ------------------------------------------------------------------ */
 /* Pilares (íconos en círculo, debajo del logo)                        */
 /* ------------------------------------------------------------------ */
 export const pillars = {

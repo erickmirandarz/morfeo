@@ -68,7 +68,7 @@ export default function TechnologyCarousel() {
   };
 
   return (
-    <section className="bg-profundo/40 py-24">
+    <section id="tecnologia" className="scroll-mt-20 bg-profundo/40 py-24">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <SectionTitle eyebrow="Equipamiento" title={title} subtitle={subtitle} />
 
