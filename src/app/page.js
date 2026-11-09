@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import BookingForm from "@/components/BookingForm";
 import { Stars, Waves } from "@/components/Decor";
 import { Donation, HowItWorks, Membership } from "@/components/HomeSections";
@@ -7,22 +6,22 @@ import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import SectionTitle from "@/components/SectionTitle";
 import TechnologyCarousel from "@/components/TechnologyCarousel";
-import { brand, featureCards, hero, pillars, specialists } from "@/data/content";
+import { about, brand, hero, pillars, services, specialists } from "@/data/content";
 
 const initials = (name) =>
   name
-    .replace(/^(Lic\.|Dr\.|Dra\.|Mg\.|Prof\.)\s*/i, "")
+    .replace(/^(Lic\.|Dr\/a\.|Dr\.|Dra\.|Mg\.|Prof\.)\s*/i, "")
     .split(" ")
     .slice(0, 2)
     .map((w) => w[0])
     .join("");
 
 /* ------------------------------------------------------------------ */
-/* Hero: banner tipo tarjeta con emblema a la derecha y ondas abajo     */
+/* Inicio: banner con emblema y ondas                                  */
 /* ------------------------------------------------------------------ */
 function Hero() {
   return (
-    <section className="relative px-4 pt-28 pb-12 sm:px-6 lg:px-8">
+    <section id="inicio" className="relative scroll-mt-20 px-4 pt-28 pb-6 sm:px-6 lg:px-8">
       <div className="pointer-events-none absolute -top-40 right-0 h-[32rem] w-[32rem] rounded-full bg-acero/20 blur-3xl" />
 
       <div className="card-dark relative mx-auto max-w-7xl rounded-3xl">
@@ -35,11 +34,9 @@ function Hero() {
           ]}
         />
 
-        <div className="relative grid items-center gap-6 px-7 pt-12 pb-32 sm:px-12 lg:grid-cols-2 lg:pt-16 lg:pb-40">
+        <div className="relative grid items-center gap-6 px-7 pt-12 pb-28 sm:px-12 lg:grid-cols-2 lg:pt-16 lg:pb-32">
           <div className="relative z-10">
-            <span className="text-xs font-medium uppercase tracking-[0.35em] text-hielo">
-              {hero.eyebrow}
-            </span>
+            <span className="text-xs font-medium uppercase tracking-[0.3em] text-hielo">{hero.eyebrow}</span>
             <h1 className="mt-5 text-4xl font-normal leading-tight tracking-tight text-perla sm:text-5xl xl:text-6xl">
               {hero.title}
               <span className="block text-lavanda">{hero.highlight}</span>
@@ -47,18 +44,17 @@ function Hero() {
             <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-plata/85">{hero.subtitle}</p>
 
             <div className="mt-9 flex flex-wrap gap-4">
-              <Link href={hero.primaryCta.href} className="btn-primary group">
+              <a href={hero.primaryCta.href} className="btn-primary group">
                 {hero.primaryCta.label}
                 <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-              </Link>
-              <Link href={hero.secondaryCta.href} className="btn-secondary">
-                <Icon name="play" className="h-4 w-4" />
+              </a>
+              <a href={hero.secondaryCta.href} className="btn-secondary">
+                <Icon name="calendar" className="h-4 w-4" />
                 {hero.secondaryCta.label}
-              </Link>
+              </a>
             </div>
           </div>
 
-          {/* Emblema */}
           <div className="relative mx-auto hidden w-full max-w-md lg:block">
             <div className="absolute inset-10 rounded-full bg-lavanda/20 blur-3xl" />
             <Image
@@ -73,35 +69,22 @@ function Hero() {
           </div>
         </div>
 
-        <Waves className="h-32 sm:h-40" />
-
-        {/* Indicadores sobre las ondas */}
-        <dl className="absolute inset-x-0 bottom-0 z-10 hidden grid-cols-3 gap-4 px-12 pb-8 sm:grid lg:w-1/2">
-          {hero.stats.map((s) => (
-            <div key={s.label}>
-              <dd className="text-3xl font-light text-perla">{s.value}</dd>
-              <dt className="mt-1 text-xs uppercase tracking-wider text-hielo/90">{s.label}</dt>
-            </div>
-          ))}
-        </dl>
+        <Waves className="h-28 sm:h-36" />
       </div>
     </section>
   );
 }
 
 /* ------------------------------------------------------------------ */
-/* Pilares: íconos dentro de círculos con borde lavanda                 */
+/* Pilares: íconos en círculo (debajo del logo y el nombre)            */
 /* ------------------------------------------------------------------ */
 function Pillars() {
   return (
-    <section className="mx-auto max-w-6xl px-4 pt-14 pb-16 sm:px-6 lg:px-8">
+    <section className="mx-auto max-w-6xl px-4 pt-14 pb-10 sm:px-6 lg:px-8">
       <SectionTitle eyebrow={pillars.title} />
       <ul className="mt-10 grid grid-cols-2 gap-y-10 sm:grid-cols-4">
         {pillars.items.map((p) => {
-          // Etiqueta en dos líneas, como en el manual de marca ("Tecnología / y ciencia")
           const words = p.label.split(" ");
-          const first = words[0];
-          const rest = words.slice(1).join(" ");
           return (
             <li key={p.label} className="group flex flex-col items-center text-center">
               <span className="icon-ring relative h-28 w-28 border-lavanda bg-gradient-to-b from-profundo to-noche shadow-lg shadow-black/30 group-hover:-translate-y-1 group-hover:border-hielo group-hover:shadow-lavanda/25 sm:h-32 sm:w-32">
@@ -109,8 +92,8 @@ function Pillars() {
                 <Icon name={p.icon} className="h-14 w-14 sm:h-[4.5rem] sm:w-[4.5rem]" strokeWidth={1.1} />
               </span>
               <span className="mt-5 text-base font-light leading-snug text-plata sm:text-lg">
-                {first}
-                {rest && <span className="block">{rest}</span>}
+                {words[0]}
+                {words.length > 1 && <span className="block">{words.slice(1).join(" ")}</span>}
               </span>
             </li>
           );
@@ -121,51 +104,79 @@ function Pillars() {
 }
 
 /* ------------------------------------------------------------------ */
-/* Tarjetas destacadas: una clara y una oscura                          */
+/* Servicios                                                            */
 /* ------------------------------------------------------------------ */
-function FeatureCards() {
-  const { light, dark } = featureCards;
+function Services() {
   return (
-    <section className="mx-auto grid max-w-7xl gap-6 px-4 pb-8 sm:px-6 md:grid-cols-2 lg:px-8">
-      <article className="card-light group p-8 sm:p-10">
-        <Stars stars={[{ className: "right-[38%] top-8 h-4 w-4 !fill-lavanda" }]} />
-        <div className="pointer-events-none absolute -right-10 top-1/2 h-56 w-56 -translate-y-1/2 rounded-full border border-acero/25" />
-        <Icon
-          name={light.icon}
-          className="pointer-events-none absolute right-8 top-1/2 h-28 w-28 -translate-y-1/2 text-acero/70 transition-transform duration-500 group-hover:scale-110"
-          strokeWidth={0.9}
-        />
-        <div className="relative max-w-[65%]">
-          <h3 className="text-2xl font-normal text-profundo sm:text-3xl">{light.title}</h3>
-          <span className="mt-3 block h-0.5 w-12 rounded bg-acero" />
-          <p className="mt-4 font-light text-profundo/80">{light.text}</p>
-          <Link href={light.cta.href} className="btn-dark group/btn mt-7">
-            {light.cta.label}
-            <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-          </Link>
-        </div>
-      </article>
+    <section id="servicios" className="mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:px-8">
+      <SectionTitle eyebrow="Servicios" title={services.title} subtitle={services.subtitle} />
 
-      <article className="card-dark group p-8 sm:p-10">
-        <Stars
-          stars={[
-            { className: "right-16 top-8 h-6 w-6" },
-            { className: "right-8 top-20 h-4 w-4", delay: "1.5s" },
-          ]}
-        />
-        <div className="relative pb-10">
-          <h3 className="text-2xl font-normal text-perla sm:text-3xl">
-            {dark.title}
-            <span className="block text-lavanda">{dark.highlight}</span>
-          </h3>
-          <p className="mt-4 max-w-md font-light text-plata/85">{dark.text}</p>
-          <Link href={dark.cta.href} className="btn-primary group/btn mt-7">
-            {dark.cta.label}
-            <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-          </Link>
+      <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+        {services.items.map((s) => (
+          <li
+            key={s.title}
+            className="card-light group flex flex-col items-center p-6 text-center transition-all duration-300 hover:-translate-y-1.5 hover:shadow-lavanda/30"
+          >
+            <span className="flex h-20 w-20 items-center justify-center rounded-full bg-perla/70 text-acero ring-1 ring-acero/20 transition-all duration-300 group-hover:bg-acero group-hover:text-perla">
+              <Icon name={s.icon} className="h-10 w-10" strokeWidth={1.3} />
+            </span>
+            <h3 className="mt-5 text-lg font-medium leading-snug text-profundo">{s.title}</h3>
+            <span className="mt-3 block h-0.5 w-10 rounded bg-acero/60" />
+            <p className="mt-3 text-sm font-light leading-relaxed text-profundo/75">{s.text}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/* Nosotros: Somos Morfeo                                               */
+/* ------------------------------------------------------------------ */
+function About() {
+  return (
+    <section id="nosotros" className="mx-auto max-w-7xl scroll-mt-20 px-4 py-12 sm:px-6 lg:px-8">
+      <div className="grid items-center gap-10 lg:grid-cols-2">
+        {/* Imagen / panel con la frase */}
+        <div className="card-dark relative aspect-[4/3] w-full">
+          {about.image ? (
+            <Image src={about.image} alt="Nuestro centro" fill sizes="(min-width: 1024px) 50vw, 100vw" className="object-cover" />
+          ) : (
+            <>
+              <Image
+                src={brand.emblem}
+                alt=""
+                width={360}
+                height={360}
+                className="absolute -bottom-10 -right-10 opacity-60"
+              />
+              <Stars
+                stars={[
+                  { className: "left-10 top-10 h-5 w-5" },
+                  { className: "left-1/2 top-16 h-3 w-3", delay: "1s" },
+                ]}
+              />
+            </>
+          )}
+          <div className="absolute inset-0 bg-gradient-to-tr from-noche/70 via-transparent to-transparent" />
+          <p className="absolute bottom-8 left-8 max-w-[60%] font-brand text-2xl font-light italic leading-snug text-perla sm:text-3xl">
+            {about.quote}
+            <Icon name="heart" className="mt-2 h-6 w-6 text-lavanda" />
+          </p>
         </div>
-        <Waves className="h-20" />
-      </article>
+
+        {/* Texto */}
+        <div>
+          <span className="inline-flex rounded-full bg-hielo/15 px-4 py-1.5 text-sm text-hielo">{about.eyebrow}</span>
+          <h2 className="mt-5 text-4xl font-normal tracking-tight text-perla sm:text-5xl">{about.title}</h2>
+          <span className="mt-5 block h-0.5 w-14 rounded bg-lavanda" />
+          <p className="mt-6 max-w-xl text-lg font-light leading-relaxed text-plata/85">{about.text}</p>
+          <a href={about.cta.href} className="btn-secondary group mt-8">
+            {about.cta.label}
+            <Icon name="arrowRight" className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+          </a>
+        </div>
+      </div>
     </section>
   );
 }
@@ -206,12 +217,16 @@ function Specialists() {
   );
 }
 
+/* ------------------------------------------------------------------ */
+/* Landing page completa                                               */
+/* ------------------------------------------------------------------ */
 export default function HomePage() {
   return (
     <>
       <Hero />
       <Pillars />
-      <FeatureCards />
+      <Services />
+      <About />
       <MissionVisionValues />
       <TechnologyCarousel />
       <Specialists />

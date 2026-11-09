@@ -13,10 +13,7 @@ const josefin = Josefin_Sans({
 });
 
 export const metadata = {
-  title: {
-    default: `${site.topic} | ${site.name}`,
-    template: `%s | ${site.shortName}`,
-  },
+  title: site.fullName,
   description: site.description,
 };
 

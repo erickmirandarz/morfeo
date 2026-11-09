@@ -22,7 +22,7 @@ export default function MissionVisionValues() {
 
   return (
     <section id="mision" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-24 sm:px-6 lg:px-8">
-      <SectionTitle eyebrow="La cátedra" title={title} subtitle={subtitle} />
+      <SectionTitle eyebrow="Nuestra esencia" title={title} subtitle={subtitle} />
 
       <div
         className="mt-14 flex flex-col gap-5 md:h-[22rem] md:flex-row"

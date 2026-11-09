@@ -1,28 +1,55 @@
 "use client";
 
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { navCta, navLinks, site } from "@/data/content";
 import Icon from "./Icon";
 import Logo from "./Logo";
 
+const OFFSET = 120; // alto aproximado del menú fijo
+
+/**
+ * Menú fijo de la landing page. Cada enlace lleva a una sección de la
+ * misma página (#inicio, #nosotros…) y se resalta la sección visible.
+ */
 export default function Navbar() {
-  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState(navLinks[0].href);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const ids = navLinks.map((l) => l.href.slice(1));
+    const onScroll = () => {
+      setScrolled(window.scrollY > 12);
+      // Sección activa: la más cercana (por arriba) a la parte inferior del menú,
+      // sin importar el orden de los enlaces en el menú
+      let current = ids[0];
+      let best = -Infinity;
+      for (const id of ids) {
+        const el = document.getElementById(id);
+        if (!el) continue;
+        const top = el.getBoundingClientRect().top - OFFSET;
+        if (top <= 0 && top > best) {
+          best = top;
+          current = id;
+        }
+      }
+      // Al llegar al final de la página, marcar la última sección (Contacto)
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 4) {
+        current = ids[ids.length - 1];
+      }
+      setActive(`#${current}`);
+    };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  // Cerrar el menú móvil al cambiar de ruta
-  useEffect(() => setOpen(false), [pathname]);
-
-  const isActive = (href) => (href === "/" ? pathname === "/" : pathname.startsWith(href));
+  const linkClass = (href) =>
+    `relative px-4 py-2 text-sm transition-colors duration-200 after:absolute after:inset-x-4 after:-bottom-0.5 after:h-px after:origin-left after:bg-lavanda after:transition-transform after:duration-300 ${
+      active === href
+        ? "text-perla after:scale-x-100"
+        : "text-plata/80 after:scale-x-0 hover:text-perla hover:after:scale-x-100"
+    }`;
 
   return (
     <header
@@ -33,37 +60,26 @@ export default function Navbar() {
       }`}
     >
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        {/* Logo */}
-        <Link href="/" className="group" aria-label={`${site.name} — inicio`}>
+        <a href="#inicio" className="group" aria-label={`${site.name} — inicio`}>
           <Logo size="sm" />
-        </Link>
+        </a>
 
         {/* Enlaces escritorio */}
         <ul className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`relative px-4 py-2 text-sm transition-colors duration-200 after:absolute after:inset-x-4 after:-bottom-0.5 after:h-px after:origin-left after:bg-lavanda after:transition-transform after:duration-300 ${
-                  isActive(link.href)
-                    ? "text-perla after:scale-x-100"
-                    : "text-plata/80 after:scale-x-0 hover:text-perla hover:after:scale-x-100"
-                }`}
-              >
+              <a href={link.href} className={linkClass(link.href)} aria-current={active === link.href ? "true" : undefined}>
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
         </ul>
 
         <div className="flex items-center gap-2">
-          <Link
-            href={navCta.href}
-            className="btn-primary hidden !px-5 !py-2 text-sm sm:inline-flex"
-          >
-            <Icon name="alert" className="h-4 w-4" />
+          <a href={navCta.href} className="btn-primary hidden !px-5 !py-2 text-sm sm:inline-flex">
+            <Icon name="calendar" className="h-4 w-4" />
             {navCta.label}
-          </Link>
+          </a>
 
           {/* Botón menú móvil */}
           <button
@@ -81,30 +97,28 @@ export default function Navbar() {
       {/* Menú móvil */}
       <div
         className={`overflow-hidden transition-all duration-300 lg:hidden ${
-          open ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+          open ? "max-h-[28rem] opacity-100" : "max-h-0 opacity-0"
         }`}
       >
         <ul className="space-y-1 px-4 pb-4">
           {navLinks.map((link) => (
             <li key={link.href}>
-              <Link
+              <a
                 href={link.href}
+                onClick={() => setOpen(false)}
                 className={`block rounded-xl px-4 py-3 text-sm font-medium ${
-                  isActive(link.href) ? "bg-profundo text-perla" : "text-plata hover:bg-profundo/60"
+                  active === link.href ? "bg-profundo text-perla" : "text-plata hover:bg-profundo/60"
                 }`}
               >
                 {link.label}
-              </Link>
+              </a>
             </li>
           ))}
           <li>
-            <Link
-              href={navCta.href}
-              className="btn-primary mt-2 flex w-full text-sm"
-            >
-              <Icon name="alert" className="h-4 w-4" />
+            <a href={navCta.href} onClick={() => setOpen(false)} className="btn-primary mt-2 flex w-full text-sm">
+              <Icon name="calendar" className="h-4 w-4" />
               {navCta.label}
-            </Link>
+            </a>
           </li>
         </ul>
       </div>

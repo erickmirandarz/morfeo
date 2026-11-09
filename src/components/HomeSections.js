@@ -39,9 +39,9 @@ export function HowItWorks() {
 export function Membership() {
   const { title, subtitle, plans } = membership;
   return (
-    <section className="bg-profundo/40 py-24">
+    <section id="beneficios" className="scroll-mt-20 bg-profundo/40 py-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <SectionTitle eyebrow="Suscripción" title={title} subtitle={subtitle} />
+        <SectionTitle eyebrow="Beneficios" title={title} subtitle={subtitle} />
 
         <div className="mt-14 grid gap-8 md:grid-cols-2 md:items-center">
           {plans.map((p) =>
@@ -115,9 +115,9 @@ export function Membership() {
 /* Un sueño, una oportunidad (donaciones)                              */
 /* ------------------------------------------------------------------ */
 export function Donation() {
-  const { title, highlight, text, backgroundImage, cta } = donation;
+  const { eyebrow, title, highlight, text, backgroundImage, cta } = donation;
   return (
-    <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
+    <section id="becas" className="mx-auto max-w-7xl scroll-mt-20 px-4 py-24 sm:px-6 lg:px-8">
       <div className="relative overflow-hidden rounded-3xl border border-lavanda/25 shadow-2xl shadow-black/40">
         {/* Fondo: foto de niños felices (o degradé mientras no esté la foto) */}
         {backgroundImage ? (
@@ -136,7 +136,7 @@ export function Donation() {
 
         <div className="relative px-7 py-14 sm:px-12 sm:py-20 md:min-h-[30rem]">
           <div className="max-w-md">
-            <span className="text-xs font-medium uppercase tracking-[0.35em] text-hielo">Donaciones</span>
+            <span className="text-xs font-medium uppercase tracking-[0.35em] text-hielo">{eyebrow}</span>
             <h2 className="mt-4 text-4xl font-normal leading-tight text-perla sm:text-5xl">
               {title}
               <span className="block text-lavanda">{highlight}</span>
