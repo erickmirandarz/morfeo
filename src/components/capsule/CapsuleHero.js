@@ -158,7 +158,7 @@ export default function CapsuleHero() {
                 {i === 0 ? (
                   <>
                     <span className="text-xs font-medium uppercase tracking-[0.3em] text-hielo">{hero.eyebrow}</span>
-                    <h1 className="mt-5 text-4xl font-normal leading-tight tracking-tight text-perla sm:text-5xl xl:text-6xl">
+                    <h1 className="mt-4 text-[2rem] font-normal leading-tight tracking-tight text-perla sm:mt-5 sm:text-5xl xl:text-6xl">
                       {hero.title}
                       <span className="block text-lavanda">{hero.highlight}</span>
                     </h1>

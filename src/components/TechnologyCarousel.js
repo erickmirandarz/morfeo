@@ -142,10 +142,9 @@ export default function TechnologyCarousel() {
                         />
                       ) : (
                         <div className="flex h-full flex-col items-center justify-center gap-3 bg-gradient-to-br from-profundo to-acero/40 text-lavanda">
-                          <span className="icon-ring h-20 w-20">
-                            <Icon name={item.icon} className="h-9 w-9" strokeWidth={1.4} />
+                          <span className="icon-ring h-24 w-24 bg-noche/40">
+                            <Icon name={item.icon} className="h-11 w-11" strokeWidth={1.2} />
                           </span>
-                          <span className="text-xs uppercase tracking-[0.25em] text-hielo/70">Foto próximamente</span>
                         </div>
                       )}
                     </div>

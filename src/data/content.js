@@ -13,9 +13,9 @@
 /* ------------------------------------------------------------------ */
 export const site = {
   name: "Morfeo",
-  fullName: "Morfeo — Centro de Rehabilitación Neuro-Somática",
+  fullName: "Morfeo — Instituto de Neuro-Rehabilitación y Cronobiología",
   description:
-    "Centro de kinesiología, fisiatría y rehabilitación del sueño, con un enfoque integral y personalizado.",
+    "Restauramos el sistema nervioso y regulamos los trastornos del sueño mediante kinesiología neuro-somática, cronobiología y tecnología de privación sensorial.",
   year: 2026,
 };
 
@@ -24,7 +24,7 @@ export const site = {
 /* ------------------------------------------------------------------ */
 export const brand = {
   name: "Morfeo",
-  tagline: "Centro de Rehabilitación Neuro-Somática",
+  tagline: "Instituto de Neuro-Rehabilitación y Cronobiología",
   logo: "/brand/morfeo-logo.jpg", // logo completo
   emblem: "/brand/morfeo-emblema.png", // solo el ícono (luna + rostro)
 };
@@ -47,11 +47,12 @@ export const navCta = { label: "Agendá tu turno", href: "#turno" };
 /* Inicio — Hero                                                       */
 /* ------------------------------------------------------------------ */
 export const hero = {
-  eyebrow: "Centro de Rehabilitación Neuro-Somática",
+  eyebrow: "Instituto de Neuro-Rehabilitación y Cronobiología",
   title: "Recuperar el descanso,",
   highlight: "también es avanzar",
+  // Propuesta de valor del documento institucional
   subtitle:
-    "Centro de kinesiología, fisiatría y rehabilitación del sueño, con un enfoque integral y personalizado.",
+    "Restauramos el sistema nervioso y regulamos los trastornos del sueño mediante kinesiología neuro-somática, cronobiología y tecnología de privación sensorial.",
   primaryCta: { label: "Conocé nuestros servicios", href: "#servicios" },
   secondaryCta: { label: "Agendá tu turno", href: "#turno" },
 };
@@ -109,22 +110,22 @@ export const pillars = {
 /* ------------------------------------------------------------------ */
 export const services = {
   title: "Nuestros servicios",
-  subtitle: "Tratamientos personalizados para acompañar cada etapa de tu proceso.",
+  subtitle: "Una alternativa científica donde el descanso es el pilar central de la recuperación.",
   items: [
     {
       icon: "brain",
-      title: "Rehabilitación Neurológica",
-      text: "Abordaje de secuelas de ACV, lesiones neurológicas y trastornos del movimiento.",
+      title: "Kinesiología Neuro-Somática",
+      text: "Tratamientos de regulación sensorial y biofeedback para restaurar el sistema nervioso y aliviar el dolor crónico.",
     },
     {
       icon: "bed",
-      title: "Rehabilitación del Sueño",
-      text: "Evaluación y tratamiento de alteraciones del sueño y del ritmo circadiano.",
+      title: "Laboratorio del Sueño",
+      text: "Cápsulas de privación sensorial y polisomnografía para evaluar y regular los trastornos del sueño.",
     },
     {
-      icon: "user",
-      title: "Fisiatría y Acompañamiento Integral",
-      text: "Planes de tratamiento interdisciplinarios centrados en la persona.",
+      icon: "users",
+      title: "Wellness Corporativo",
+      text: "Convenios con empresas para prevenir el burnout y mejorar la calidad del descanso de sus colaboradores.",
     },
   ],
 };
@@ -135,7 +136,7 @@ export const services = {
 export const about = {
   eyebrow: "Sobre nosotros",
   title: "Somos Morfeo",
-  text: "Un equipo de profesionales comprometidos con tu salud y calidad de vida, especializados en rehabilitación neurológica y del sueño, para acompañarte en cada etapa de tu proceso.",
+  text: "Un equipo interdisciplinario de kinesiólogos neuro-somáticos, técnicos en polisomnografía, médicos e ingenieros biomédicos. No ofrecemos sesiones tradicionales de kinesiología: trabajamos para restaurar tu sistema nervioso y reconectarte con el descanso reparador.",
   quote: "Tu bienestar, nuestra prioridad",
   // TODO: foto del centro (ej. "/nosotros/centro.jpg" dentro de /public). Si es null se muestra el emblema.
   image: null,
@@ -184,7 +185,7 @@ export const missionVisionValues = {
 /* ------------------------------------------------------------------ */
 export const technology = {
   title: "Nuestra Tecnología",
-  subtitle: "Espacios diseñados para regular el sistema nervioso y recuperar el descanso.",
+  subtitle: "Tecnología de privación sensorial, aislamiento acústico y biofeedback para regular el sistema nervioso.",
   // `image`: ruta de la foto dentro de /public · `imagePosition`: qué parte de la foto
   // se prioriza al recortarla (CSS object-position, ej. "center 70%").
   // Para sumar otro equipo, copiá un bloque { … } y cambiá sus datos.
@@ -208,6 +209,30 @@ export const technology = {
       image: "/tecnologia/cabina-descanso.jpg",
       imagePosition: "center",
     },
+    {
+      icon: "pulse",
+      title: "Biofeedback",
+      description:
+        "Sensores que muestran en tiempo real las respuestas de tu cuerpo, para aprender a regular el sistema nervioso durante la terapia.",
+      tag: "Regulación sensorial",
+      image: null, // TODO: agregar foto
+    },
+    {
+      icon: "chart",
+      title: "Polisomnografía",
+      description:
+        "Estudio del sueño realizado por técnicos especializados en nuestro Laboratorio del Sueño.",
+      tag: "Laboratorio del Sueño",
+      image: null, // TODO: agregar foto
+    },
+    {
+      icon: "phone",
+      title: "App de monitoreo circadiano",
+      description:
+        "Registra tu descanso y tu variabilidad de la frecuencia cardíaca (VFC), integrada con tu Historia Clínica Electrónica.",
+      tag: "Salud digital",
+      image: null, // TODO: agregar foto
+    },
   ],
 };
 
@@ -216,13 +241,23 @@ export const technology = {
 /* ------------------------------------------------------------------ */
 export const specialists = {
   title: "Nuestros Especialistas",
-  subtitle: "Profesionales que te acompañan en cada etapa.",
-  // TODO: reemplazar por el equipo real. `photo` es opcional (ruta en /public).
+  subtitle: "Un equipo interdisciplinario que te acompaña en cada etapa.",
+  // Organigrama (estructura Lineal-Staff) que se muestra debajo del equipo
+  orgChart: {
+    title: "Organigrama",
+    text: "Estructura Lineal-Staff: tres direcciones de área bajo la Dirección General, con asesoramiento del Comité Científico, Ingeniería Biomédica y Asesoría Legal.",
+    image: "/equipo/organigrama-morfeo.jpg",
+    imageAlt:
+      "Organigrama de Morfeo: Dirección General; staff de Comité Científico, Ingeniería Biomédica y Asesoría Legal; Direcciones Clínica, Comercial y Administrativa con sus áreas",
+  },
+  // `role` y `specialty` son opcionales: si están vacíos no se muestran.
+  // TODO: completar el rol de cada profesional. `photo` es opcional (ruta en /public).
   members: [
-    { name: "Lic. Nombre Apellido", role: "Kinesiólogo/a", specialty: "Rehabilitación neurológica", photo: null },
-    { name: "Dr/a. Nombre Apellido", role: "Médico/a", specialty: "Medicina del sueño", photo: null },
-    { name: "Lic. Nombre Apellido", role: "Kinesiólogo/a", specialty: "Neuro-rehabilitación del sueño", photo: null },
-    { name: "Dr/a. Nombre Apellido", role: "Médico/a fisiatra", specialty: "Fisiatría", photo: null },
+    { name: "Julian Jeckeln", role: "", specialty: "", photo: null },
+    { name: "Juliana Rubiño", role: "", specialty: "", photo: null },
+    { name: "Nicolas Sanabria", role: "", specialty: "", photo: null },
+    { name: "Martina Toscano", role: "", specialty: "", photo: null },
+    { name: "Florencia Tapia", role: "", specialty: "", photo: null },
   ],
 };
 
@@ -244,7 +279,7 @@ export const facilities = {
   ],
   spaces: [
     "Recepción y atención",
-    "Espera y descanso",
+    "Lounge de transición (espera y descanso)",
     "Cafetería “El Descanso”",
     "Vestidores para mujeres y hombres",
     "Baños públicos",
@@ -257,15 +292,14 @@ export const facilities = {
 /* ------------------------------------------------------------------ */
 /* ¿Cómo funciona?                                                     */
 /* ------------------------------------------------------------------ */
-// TODO: reemplazar por el texto definitivo.
 export const howItWorks = {
   title: "¿Cómo funciona?",
-  subtitle: "Un recorrido simple, acompañado en cada etapa.",
+  subtitle: "Tu recorrido en Morfeo, paso a paso.",
   steps: [
-    { icon: "calendar", title: "Agendá tu turno", text: "Elegí un día en el calendario y contanos brevemente qué te pasa." },
-    { icon: "user", title: "Evaluación inicial", text: "Un especialista analiza tu caso y define los objetivos del tratamiento." },
-    { icon: "dumbbell", title: "Plan personalizado", text: "Diseñamos sesiones a tu medida con la tecnología del centro." },
-    { icon: "chart", title: "Seguimiento", text: "Medimos tu progreso y ajustamos el plan hasta el alta." },
+    { icon: "calendar", title: "Agendá tu turno", text: "Elegí un día y contanos qué te pasa. Te recibimos en nuestro lounge de transición." },
+    { icon: "user", title: "Evaluación", text: "Analizamos los desencadenantes de tu insomnio, incluso en nuestro Simulador de Entorno Cotidiano." },
+    { icon: "lotus", title: "Tratamiento", text: "Sesiones en cápsulas de privación sensorial con kinesiología neuro-somática y biofeedback." },
+    { icon: "chart", title: "Seguimiento", text: "Medimos tu evolución con la Historia Clínica Electrónica y la App de monitoreo circadiano." },
   ],
 };
 
@@ -280,9 +314,11 @@ export const booking = {
   timeSlots: ["08:00", "09:00", "10:00", "11:00", "14:00", "15:00", "16:00", "17:00"],
   genderOptions: ["Mujer", "Hombre", "Otro / Prefiero no decirlo"],
   lookingForOptions: [
+    "Trastornos del sueño / insomnio",
+    "Fatiga o burnout",
+    "Dolor crónico",
     "Rehabilitación neurológica",
-    "Rehabilitación del sueño",
-    "Fisiatría",
+    "Convenio para empresas",
     "Otro",
   ],
   successMessage:
@@ -344,7 +380,7 @@ export const merch = {
 export const contact = {
   address: "Av. Siempre Sana 123, Jujuy",
   phone: "388 123 4567",
-  email: "hola@morfeo.com.ar",
+  email: "contacto@morfeosalud.com", // TODO: confirmar (el documento usa el dominio morfeosalud.com)
   social: [
     { icon: "instagram", label: "Instagram", href: "#" }, // TODO
     { icon: "facebook", label: "Facebook", href: "#" }, // TODO

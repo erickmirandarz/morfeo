@@ -3,6 +3,7 @@ import BookingForm from "@/components/BookingForm";
 import CapsuleHero from "@/components/capsule/CapsuleHero";
 import { Stars } from "@/components/Decor";
 import Facilities from "@/components/Facilities";
+import ZoomableImage from "@/components/ZoomableImage";
 import { HowItWorks, Merch } from "@/components/HomeSections";
 import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
@@ -132,11 +133,11 @@ function Specialists() {
     <section className="mx-auto max-w-7xl px-4 py-24 sm:px-6 lg:px-8">
       <SectionTitle eyebrow="Equipo" title={specialists.title} subtitle={specialists.subtitle} />
 
-      <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      <ul className="mt-14 flex flex-wrap justify-center gap-4 sm:gap-6">
         {specialists.members.map((m, i) => (
           <li
             key={`${m.name}-${i}`}
-            className="group rounded-2xl border border-lavanda/20 bg-profundo/60 p-6 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-lavanda/50 hover:shadow-acero/20"
+            className="group w-[calc(50%-8px)] rounded-2xl border border-lavanda/20 bg-profundo/60 p-4 text-center shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-lavanda/50 hover:shadow-acero/20 sm:w-[calc(33.333%-16px)] sm:p-6 lg:w-[calc(20%-19.2px)]"
           >
             {m.photo ? (
               // eslint-disable-next-line @next/next/no-img-element
@@ -146,16 +147,37 @@ function Specialists() {
                 className="mx-auto h-24 w-24 rounded-full object-cover ring-2 ring-lavanda/60 ring-offset-4 ring-offset-profundo"
               />
             ) : (
-              <div className="mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-acero to-lavanda text-2xl font-light text-perla ring-2 ring-lavanda/60 ring-offset-4 ring-offset-profundo transition-transform duration-300 group-hover:scale-105">
+              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-gradient-to-br from-acero to-lavanda text-xl font-light sm:h-24 sm:w-24 sm:text-2xl text-perla ring-2 ring-lavanda/60 ring-offset-4 ring-offset-profundo transition-transform duration-300 group-hover:scale-105">
                 {initials(m.name)}
               </div>
             )}
-            <h3 className="mt-6 font-medium text-perla">{m.name}</h3>
-            <p className="mt-1 text-sm text-lavanda">{m.role}</p>
-            <p className="mt-4 rounded-full bg-hielo/10 px-3 py-1.5 text-xs font-light text-hielo">{m.specialty}</p>
+            <h3 className="mt-5 text-sm font-medium text-perla sm:mt-6 sm:text-base">{m.name}</h3>
+            {m.role && <p className="mt-1 text-sm text-lavanda">{m.role}</p>}
+            {m.specialty && (
+              <p className="mt-4 rounded-full bg-hielo/10 px-3 py-1.5 text-xs font-light text-hielo">{m.specialty}</p>
+            )}
           </li>
         ))}
       </ul>
+
+      {/* Organigrama */}
+      {specialists.orgChart && (
+        <div className="mx-auto mt-20 max-w-5xl">
+          <div className="text-center">
+            <h3 className="text-2xl font-normal text-perla sm:text-3xl">{specialists.orgChart.title}</h3>
+            <p className="mx-auto mt-3 max-w-2xl font-light leading-relaxed text-plata/80">{specialists.orgChart.text}</p>
+          </div>
+          <ZoomableImage
+            src={specialists.orgChart.image}
+            alt={specialists.orgChart.imageAlt}
+            width={2048}
+            height={1143}
+            label="Ver organigrama"
+            title="Organigrama de Morfeo"
+            className="mt-8"
+          />
+        </div>
+      )}
     </section>
   );
 }

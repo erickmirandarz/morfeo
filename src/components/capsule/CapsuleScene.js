@@ -19,8 +19,8 @@ const KEYFRAMES_DESKTOP = [
 
 const KEYFRAMES_MOBILE = KEYFRAMES_DESKTOP.map((k, i) => ({
   ...k,
-  pos: [0, [1.0, 0.95, 0.68, 1.05][i]],
-  scale: k.scale * 0.56,
+  pos: [0, [1.18, 1.12, 0.9, 1.2][i]],
+  scale: k.scale * 0.5,
 }));
 
 const smooth = (t) => t * t * (3 - 2 * t);
