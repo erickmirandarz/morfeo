@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+/* Paleta "Estilo Morfeo" — disponible como bg-noche, text-perla, border-acero, etc.
+   Noche: fondos principales y encabezados · Profundo: secciones destacadas
+   Acero: botones e íconos · Lavanda: detalles y elementos gráficos
+   Hielo: fondos suaves y tarjetas · Perla: texto y secciones · Plata: bordes y detalles */
+@theme {
+  --color-noche: #050d22;
+  --color-profundo: #101d3a;
+  --color-acero: #536b9a;
+  --color-lavanda: #899bcb;
+  --color-hielo: #c5d2ee;
+  --color-perla: #f5f6fa;
+  --color-plata: #dce2f0;
+
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
+  --font-brand: var(--font-josefin), var(--font-outfit), ui-sans-serif, sans-serif;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.35;
+    transform: scale(0.85);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes floaty {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-noche text-perla antialiased;
+}
+
+::selection {
+  @apply bg-lavanda text-noche;
+}
+
+/* ---------- Componentes de marca ---------- */
+@layer components {
+  /* Botón principal: píldora lavanda */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-acero to-lavanda px-6 py-2.5 font-medium text-perla shadow-lg shadow-acero/30 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lavanda/40 hover:brightness-110;
+  }
+  /* Botón secundario: píldora con borde claro */
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-plata/80 px-6 py-2.5 font-medium text-perla transition-all duration-300 hover:-translate-y-0.5 hover:border-perla hover:bg-perla/10;
+  }
+  /* Botón oscuro para tarjetas claras */
+  .btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-profundo px-6 py-2.5 font-medium text-perla shadow-lg transition-all duration-300 hover:-translate-y-0.5 hover:bg-noche;
+  }
+  /* Link subrayado con flecha */
+  .link-arrow {
+    @apply inline-flex items-center gap-2 text-lavanda underline decoration-lavanda/60 underline-offset-4 transition-colors duration-200 hover:text-hielo;
+  }
+  /* Tarjeta oscura con degradé suave */
+  .card-dark {
+    @apply relative overflow-hidden rounded-2xl border border-lavanda/25 bg-gradient-to-br from-profundo via-profundo to-acero/40 shadow-xl shadow-black/30;
+  }
+  /* Tarjeta clara (celeste hielo / perla) */
+  .card-light {
+    @apply relative overflow-hidden rounded-2xl bg-gradient-to-br from-perla via-plata to-hielo text-profundo shadow-xl shadow-black/30;
+  }
+  /* Ícono en círculo con borde lavanda */
+  .icon-ring {
+    @apply flex items-center justify-center rounded-full border-2 border-lavanda/70 text-perla transition-all duration-300;
+  }
+}
