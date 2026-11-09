@@ -117,11 +117,6 @@ export const services = {
       text: "Abordaje de secuelas de ACV, lesiones neurológicas y trastornos del movimiento.",
     },
     {
-      icon: "lungs",
-      title: "Kinesiología Respiratoria",
-      text: "Mejora de la función pulmonar, el patrón respiratorio y la tolerancia al esfuerzo.",
-    },
-    {
       icon: "bed",
       title: "Rehabilitación del Sueño",
       text: "Evaluación y tratamiento de alteraciones del sueño y del ritmo circadiano.",
@@ -130,11 +125,6 @@ export const services = {
       icon: "user",
       title: "Fisiatría y Acompañamiento Integral",
       text: "Planes de tratamiento interdisciplinarios centrados en la persona.",
-    },
-    {
-      icon: "users",
-      title: "Atención Pediátrica y Adultos Mayores",
-      text: "Cuidado adaptado a cada edad, desde la infancia hasta la vejez.",
     },
   ],
 };
@@ -231,7 +221,7 @@ export const specialists = {
   members: [
     { name: "Lic. Nombre Apellido", role: "Kinesiólogo/a", specialty: "Rehabilitación neurológica", photo: null },
     { name: "Dr/a. Nombre Apellido", role: "Médico/a", specialty: "Medicina del sueño", photo: null },
-    { name: "Lic. Nombre Apellido", role: "Kinesiólogo/a", specialty: "Kinesiología respiratoria", photo: null },
+    { name: "Lic. Nombre Apellido", role: "Kinesiólogo/a", specialty: "Neuro-rehabilitación del sueño", photo: null },
     { name: "Dr/a. Nombre Apellido", role: "Médico/a fisiatra", specialty: "Fisiatría", photo: null },
   ],
 };
@@ -263,7 +253,6 @@ export const booking = {
   genderOptions: ["Mujer", "Hombre", "Otro / Prefiero no decirlo"],
   lookingForOptions: [
     "Rehabilitación neurológica",
-    "Kinesiología respiratoria",
     "Rehabilitación del sueño",
     "Fisiatría",
     "Otro",

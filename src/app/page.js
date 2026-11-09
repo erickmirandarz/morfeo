@@ -53,7 +53,7 @@ function Services() {
     <section id="servicios" className="mx-auto max-w-7xl scroll-mt-20 px-4 py-20 sm:px-6 lg:px-8">
       <SectionTitle eyebrow="Servicios" title={services.title} subtitle={services.subtitle} />
 
-      <ul className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
+      <ul className="mx-auto mt-14 grid max-w-5xl gap-5 md:grid-cols-3">
         {services.items.map((s) => (
           <li
             key={s.title}
