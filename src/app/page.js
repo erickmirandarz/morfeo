@@ -2,7 +2,7 @@ import Image from "next/image";
 import BookingForm from "@/components/BookingForm";
 import CapsuleHero from "@/components/capsule/CapsuleHero";
 import { Stars } from "@/components/Decor";
-import { Donation, HowItWorks, Membership } from "@/components/HomeSections";
+import { HowItWorks, Merch } from "@/components/HomeSections";
 import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
 import SectionTitle from "@/components/SectionTitle";
@@ -174,8 +174,7 @@ export default function HomePage() {
       <Specialists />
       <HowItWorks />
       <BookingForm />
-      <Membership />
-      <Donation />
+      <Merch />
     </>
   );
 }

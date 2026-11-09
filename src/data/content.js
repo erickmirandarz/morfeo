@@ -37,7 +37,7 @@ export const navLinks = [
   { label: "Inicio", href: "#inicio" },
   { label: "Nosotros", href: "#nosotros" },
   { label: "Servicios", href: "#servicios" },
-  { label: "Beneficios", href: "#beneficios" },
+  { label: "Merch", href: "#merch" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -273,60 +273,47 @@ export const booking = {
 };
 
 /* ------------------------------------------------------------------ */
-/* Beneficios — Hacete socio                                           */
+/* Merch Solidario — "Morfeo en tu Rutina"                             */
 /* ------------------------------------------------------------------ */
-// TODO: definir precios y beneficios reales.
-export const membership = {
-  title: "Hacete socio",
-  subtitle: "Accedé a nuestro centro con una suscripción mensual o anual.",
-  plans: [
+export const merch = {
+  eyebrow: "Merch Solidario",
+  title: "Morfeo en tu Rutina",
+  slogan: "Llevá el descanso con vos, regalá una oportunidad de recuperarse",
+  intro:
+    "Nuestra línea oficial de merchandising: productos lindos y útiles que tienen que ver con la experiencia de descanso que ofrecemos.",
+  // TODO: si tienen fotos de los productos, se pueden agregar más adelante.
+  products: [
+    { icon: "bottle", name: "Botellas térmicas", text: "Para acompañar tu hidratación durante todo el día." },
+    { icon: "sleepmask", name: "Antifaces de relajación", text: "Oscuridad total para descansar mejor, donde estés." },
+    { icon: "cup", name: "Ecovasos", text: "Reutilizables, para tus infusiones de cada día." },
+    { icon: "spray", name: "Kits de brumas aromáticas", text: "Aromas suaves para preparar el ambiente antes de dormir." },
+  ],
+  availability: "Disponibles en la recepción de MORFEO y a través de la App del centro.",
+  scholarship: {
+    eyebrow: "Beca / suscripción solidaria",
+    title: "¿Cómo funciona?",
+    percent: "20%",
+    percentText: "de lo recaudado por las ventas del merch se destina a un fondo especial de becas del instituto.",
+    steps: [
+      "Comprás un producto del merch oficial de Morfeo.",
+      "El 20% de la venta va directamente al fondo de becas.",
+      "Con ese fondo armamos las “Suscripciones Morfeo”: cubren el tratamiento completo (acceso a las cápsulas de privación sensorial y las terapias de neuro-rehabilitación del sueño) a pacientes neurológicos de Jujuy que realmente lo necesiten y no puedan pagarlo.",
+    ],
+    // Fondo: ilustración de niños felices (se puede reemplazar por una foto).
+    backgroundImage: "/donaciones/ninos-felices.svg",
+  },
+  foundations: [
     {
-      id: "mensual",
-      name: "Plan Mensual",
-      price: "$ 00.000",
-      period: "/ mes",
-      description: "Ideal para empezar o para tratamientos cortos.",
-      features: [
-        "Acceso a sesiones durante el mes",
-        "Evaluación inicial incluida",
-        "Seguimiento de tu progreso",
-      ],
-      cta: { label: "Quiero el plan mensual", href: "#turno" },
-      highlighted: false,
+      icon: "users",
+      title: "Cultura y comunidad",
+      text: "Los pacientes se llevan algo lindo del centro a su casa y ayudan a mantener presente el concepto del descanso en su día a día.",
     },
     {
-      id: "anual",
-      name: "Plan Anual",
-      price: "$ 000.000",
-      period: "/ año",
-      badge: "Más conveniente",
-      description: "Asistí todo el año y ahorrá frente al plan mensual.",
-      features: [
-        "Acceso a sesiones todo el año",
-        "Evaluaciones periódicas",
-        "Prioridad en la agenda de turnos",
-        "Seguimiento personalizado",
-      ],
-      cta: { label: "Quiero el plan anual", href: "#turno" },
-      highlighted: true,
+      icon: "heart",
+      title: "Impacto real",
+      text: "Una forma transparente y alcanzable de hacer Responsabilidad Social Empresaria desde un centro privado, sin depender de donaciones: generamos recursos propios para becar a quienes lo necesitan.",
     },
   ],
-};
-
-/* ------------------------------------------------------------------ */
-/* Becas Solidarias — Un sueño, una oportunidad                        */
-/* ------------------------------------------------------------------ */
-export const donation = {
-  eyebrow: "Becas Solidarias",
-  title: "Un sueño,",
-  highlight: "una oportunidad",
-  text: [
-    "Trabajamos para que más personas puedan acceder a sus tratamientos.",
-    "Con tu aporte, ayudás a cubrir el tratamiento completo de quienes más lo necesitan.",
-  ],
-  // Fondo: ilustración de niños felices. Se puede reemplazar por una foto (ej. "/donaciones/fondo.jpg").
-  backgroundImage: "/donaciones/ninos-felices.svg",
-  cta: { label: "Donar", href: null }, // TODO: enlace de pago (ej. Mercado Pago) o página con datos bancarios
 };
 
 /* ------------------------------------------------------------------ */
