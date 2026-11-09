@@ -1,4 +1,4 @@
-import { brand, contact, navLinks, site } from "@/data/content";
+import { brand, contact, site } from "@/data/content";
 import Icon from "./Icon";
 import Logo from "./Logo";
 
@@ -39,7 +39,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Navegación + redes */}
+        {/* Redes */}
         <div>
           <h3 className="text-xs font-medium uppercase tracking-[0.3em] text-hielo">Seguinos</h3>
           <div className="mt-5 flex gap-3">
@@ -56,16 +56,6 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <h3 className="mt-8 text-xs font-medium uppercase tracking-[0.3em] text-hielo">Secciones</h3>
-          <ul className="mt-4 grid grid-cols-2 gap-2 text-sm">
-            {navLinks.map((l) => (
-              <li key={l.href}>
-                <a href={l.href} className="text-plata/80 transition-colors hover:text-lavanda">
-                  {l.label}
-                </a>
-              </li>
-            ))}
-          </ul>
         </div>
 
         {/* Lema */}
