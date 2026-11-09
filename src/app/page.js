@@ -2,6 +2,7 @@ import Image from "next/image";
 import BookingForm from "@/components/BookingForm";
 import CapsuleHero from "@/components/capsule/CapsuleHero";
 import { Stars } from "@/components/Decor";
+import Facilities from "@/components/Facilities";
 import { HowItWorks, Merch } from "@/components/HomeSections";
 import Icon from "@/components/Icon";
 import MissionVisionValues from "@/components/MissionVisionValues";
@@ -172,6 +173,7 @@ export default function HomePage() {
       <MissionVisionValues />
       <TechnologyCarousel />
       <Specialists />
+      <Facilities />
       <HowItWorks />
       <BookingForm />
       <Merch />

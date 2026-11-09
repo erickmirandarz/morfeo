@@ -227,6 +227,34 @@ export const specialists = {
 };
 
 /* ------------------------------------------------------------------ */
+/* Nuestras instalaciones (plano del centro)                           */
+/* ------------------------------------------------------------------ */
+export const facilities = {
+  eyebrow: "Instalaciones",
+  title: "Conocé nuestro centro",
+  subtitle: "Un espacio de aproximadamente 225 m² pensado para el descanso y la recuperación.",
+  image: "/instalaciones/plano-morfeo.jpg",
+  imageAlt:
+    "Plano del centro Morfeo: cámaras de flotación, cámaras de descanso, sala de masajes, recepción, cafetería, vestidores, administración y sala de reuniones",
+  highlights: [
+    { value: "4", label: "Habitaciones con cámaras de flotación" },
+    { value: "6", label: "Cámaras de descanso" },
+    { value: "4", label: "Camillas en la sala de masajes" },
+    { value: "~225 m²", label: "De superficie" },
+  ],
+  spaces: [
+    "Recepción y atención",
+    "Espera y descanso",
+    "Cafetería “El Descanso”",
+    "Vestidores para mujeres y hombres",
+    "Baños públicos",
+    "Administración",
+    "Sala de reuniones",
+    "Salidas de emergencia",
+  ],
+};
+
+/* ------------------------------------------------------------------ */
 /* ¿Cómo funciona?                                                     */
 /* ------------------------------------------------------------------ */
 // TODO: reemplazar por el texto definitivo.
