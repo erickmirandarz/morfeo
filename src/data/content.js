@@ -350,7 +350,7 @@ export const merch = {
   title: "Morfeo en tu Rutina",
   slogan: "Llevá el descanso con vos, regalá una oportunidad de recuperarse",
   intro:
-    "Nuestra línea oficial de merchandising: productos lindos y útiles que tienen que ver con la experiencia de descanso que ofrecemos.",
+    "Junto a comercios y emprendimientos locales de Jujuy creamos una línea de merchandising solidario: productos útiles, relacionados con el bienestar y la experiencia de descanso que ofrecemos.",
   // Foto de toda la línea (cabecera de la sección)
   heroImage: "/merch/linea-morfeo.jpg",
   heroImageAlt:
@@ -362,31 +362,45 @@ export const merch = {
     { icon: "cup", image: "/merch/ecovaso.jpg", name: "Ecovasos", text: "Reutilizables, para tus infusiones de cada día." },
     { icon: "spray", image: "/merch/bruma.jpg", name: "Kits de brumas aromáticas", text: "Aromas suaves para preparar el ambiente antes de dormir." },
   ],
-  availability: "Disponibles en la recepción de MORFEO y a través de la App del centro.",
+  availability: "Disponibles en la recepción de MORFEO y en comercios aliados.",
+  // ¿Cómo funciona la alianza con los comercios?
+  alliance: {
+    eyebrow: "Alianza con comercios locales",
+    title: "¿Cómo funciona la alianza?",
+    parts: [
+      {
+        icon: "lotus",
+        name: "MORFEO",
+        text: "Se encarga del diseño de los productos, la identidad de la campaña y la organización del fondo solidario.",
+      },
+      {
+        icon: "store",
+        name: "Comercios aliados",
+        text: "Exhiben y venden los productos en sus locales, ampliando el alcance de la campaña.",
+        // TODO: confirmar el porcentaje exacto para los comercios (en el audio dijeron "tipo un 10%").
+        reward: "Reciben un 10% de las ventas como beneficio, además de visibilidad como colaboradores de una iniciativa de responsabilidad social.",
+      },
+    ],
+  },
   scholarship: {
     eyebrow: "Beca / suscripción solidaria",
     title: "¿Cómo funciona?",
-    percent: "20%",
+    percent: "70%",
     percentText: "de lo recaudado por las ventas del merch se destina a un fondo especial de becas del instituto.",
     steps: [
-      "Comprás un producto del merch oficial de Morfeo.",
-      "El 20% de la venta va directamente al fondo de becas.",
-      "Con ese fondo armamos las “Suscripciones Morfeo”: cubren el tratamiento completo (acceso a las cápsulas de privación sensorial y las terapias de neuro-rehabilitación del sueño) a pacientes neurológicos de Jujuy que realmente lo necesiten y no puedan pagarlo.",
+      "Comprás un producto en la recepción de Morfeo o en cualquier comercio aliado.",
+      "El 70% de la venta va directamente al fondo de becas “Suscripciones Morfeo”.",
+      "Ese fondo cubre el 100% del tratamiento (acceso a las cápsulas de privación sensorial y las terapias de neuro-rehabilitación del sueño, según las necesidades de cada paciente) a pacientes neurológicos de Jujuy que no cuenten con los recursos para acceder.",
     ],
     // Fondo: ilustración de niños felices (se puede reemplazar por una foto).
     backgroundImage: "/donaciones/ninos-felices.svg",
   },
-  foundations: [
-    {
-      icon: "users",
-      title: "Cultura y comunidad",
-      text: "Los pacientes se llevan algo lindo del centro a su casa y ayudan a mantener presente el concepto del descanso en su día a día.",
-    },
-    {
-      icon: "heart",
-      title: "Impacto real",
-      text: "Una forma transparente y alcanzable de hacer Responsabilidad Social Empresaria desde un centro privado, sin depender de donaciones: generamos recursos propios para becar a quienes lo necesitan.",
-    },
+  // Beneficios para cada parte
+  benefits: [
+    { icon: "lotus", title: "MORFEO", text: "Amplía su alcance, genera recursos para financiar becas y fortalece su compromiso social." },
+    { icon: "store", title: "Comercios aliados", text: "Obtienen ganancias por las ventas, mayor visibilidad y asociación con una iniciativa solidaria." },
+    { icon: "gift", title: "Consumidores", text: "Adquieren productos útiles para su bienestar y contribuyen a una causa social." },
+    { icon: "heart", title: "Pacientes beneficiarios", text: "Acceden gratis a tratamientos que, de otra manera, podrían resultarles inaccesibles." },
   ],
 };
 
