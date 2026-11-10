@@ -190,9 +190,9 @@ export default function HomePage() {
     <>
       <CapsuleHero />
       <Pillars />
+      <MissionVisionValues />
       <Services />
       <About />
-      <MissionVisionValues />
       <TechnologyCarousel />
       <Specialists />
       <Facilities />

@@ -190,6 +190,34 @@ export function Merch() {
               </article>
             ))}
           </div>
+
+          {/* Comercios aliados */}
+          <p className="mt-12 text-center text-sm uppercase tracking-[0.25em] text-hielo/80">{alliance.shopsTitle}</p>
+          <ul className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+            {alliance.shops.map((shop) => (
+              <li
+                key={shop.name}
+                className={`flex h-28 flex-col items-center justify-center gap-2 rounded-2xl p-4 shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-y-1 ${
+                  shop.own ? "border border-lavanda/40 bg-noche" : "bg-perla"
+                }`}
+              >
+                {shop.logo ? (
+                  <Image
+                    src={shop.logo}
+                    alt={shop.name}
+                    width={shop.width}
+                    height={shop.height}
+                    className={`w-auto object-contain ${shop.own ? "h-12" : "max-h-16 max-w-full"}`}
+                  />
+                ) : (
+                  <span className="text-center font-brand text-xl font-semibold uppercase leading-tight tracking-wide text-profundo">
+                    {shop.name}
+                  </span>
+                )}
+                {shop.own && <span className="text-xs text-hielo">{shop.name}</span>}
+              </li>
+            ))}
+          </ul>
         </div>
 
         {/* ¿Cómo funciona la beca solidaria? */}
