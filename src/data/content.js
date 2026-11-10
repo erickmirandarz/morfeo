@@ -363,24 +363,8 @@ export const merch = {
     { icon: "spray", image: "/merch/bruma.jpg", name: "Kits de brumas aromáticas", text: "Aromas suaves para preparar el ambiente antes de dormir." },
   ],
   availability: "Disponibles en la recepción de MORFEO y en comercios aliados.",
-  // ¿Cómo funciona la alianza con los comercios?
+  // Comercios aliados donde se venden los productos
   alliance: {
-    eyebrow: "Alianza con comercios locales",
-    title: "¿Cómo funciona la alianza?",
-    parts: [
-      {
-        icon: "lotus",
-        name: "MORFEO",
-        text: "Se encarga del diseño de los productos, la identidad de la campaña y la organización del fondo solidario.",
-      },
-      {
-        icon: "store",
-        name: "Comercios aliados",
-        text: "Exhiben y venden los productos en sus locales, ampliando el alcance de la campaña.",
-        // TODO: confirmar el porcentaje exacto para los comercios (en el audio dijeron "tipo un 10%").
-        reward: "Reciben un 10% de las ventas como beneficio, además de visibilidad como colaboradores de una iniciativa de responsabilidad social.",
-      },
-    ],
     // Comercios aliados donde se venden los productos. `logo` dentro de /public/aliados (null = se muestra el nombre).
     shopsTitle: "Encontrá nuestros productos en",
     shops: [
@@ -404,13 +388,6 @@ export const merch = {
     // Fondo: ilustración de niños felices (se puede reemplazar por una foto).
     backgroundImage: "/donaciones/ninos-felices.svg",
   },
-  // Beneficios para cada parte
-  benefits: [
-    { icon: "lotus", title: "MORFEO", text: "Amplía su alcance, genera recursos para financiar becas y fortalece su compromiso social." },
-    { icon: "store", title: "Comercios aliados", text: "Obtienen ganancias por las ventas, mayor visibilidad y asociación con una iniciativa solidaria." },
-    { icon: "gift", title: "Consumidores", text: "Adquieren productos útiles para su bienestar y contribuyen a una causa social." },
-    { icon: "heart", title: "Pacientes beneficiarios", text: "Acceden gratis a tratamientos que, de otra manera, podrían resultarles inaccesibles." },
-  ],
 };
 
 /* ------------------------------------------------------------------ */

@@ -90,7 +90,7 @@ function SessionDay() {
 /* Merch Solidario — "Morfeo en tu Rutina"                             */
 /* ------------------------------------------------------------------ */
 export function Merch() {
-  const { eyebrow, title, slogan, intro, heroImage, heroImageAlt, products, availability, alliance, scholarship, benefits } =
+  const { eyebrow, title, slogan, intro, heroImage, heroImageAlt, products, availability, alliance, scholarship } =
     merch;
 
   return (
@@ -161,38 +161,9 @@ export function Merch() {
           ))}
         </ul>
 
-        {/* ¿Cómo funciona la alianza con comercios? */}
+        {/* Comercios aliados */}
         <div className="mt-20">
-          <div className="text-center">
-            <span className="text-xs font-medium uppercase tracking-[0.3em] text-lavanda">{alliance.eyebrow}</span>
-            <h3 className="mt-3 text-3xl font-normal text-perla sm:text-4xl">{alliance.title}</h3>
-          </div>
-          <div className="relative mt-10 grid gap-6 md:grid-cols-2">
-            {/* Unión entre las dos partes (escritorio) */}
-            <span className="pointer-events-none absolute left-1/2 top-1/2 z-10 hidden h-12 w-12 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-lavanda/50 bg-noche font-brand text-xl text-lavanda md:flex">
-              +
-            </span>
-            {alliance.parts.map((part) => (
-              <article key={part.name} className="card-dark flex flex-col gap-4 p-7 sm:p-8">
-                <div className="flex items-center gap-4">
-                  <span className="icon-ring h-14 w-14 shrink-0">
-                    <Icon name={part.icon} className="h-6 w-6" strokeWidth={1.5} />
-                  </span>
-                  <h4 className="text-xl font-normal text-perla">{part.name}</h4>
-                </div>
-                <p className="font-light leading-relaxed text-plata/85">{part.text}</p>
-                {part.reward && (
-                  <p className="flex gap-2 rounded-2xl border border-lavanda/30 bg-acero/15 px-4 py-3 text-sm font-light leading-relaxed text-hielo">
-                    <Icon name="gift" className="mt-0.5 h-4 w-4 shrink-0 text-lavanda" />
-                    {part.reward}
-                  </p>
-                )}
-              </article>
-            ))}
-          </div>
-
-          {/* Comercios aliados */}
-          <p className="mt-12 text-center text-sm uppercase tracking-[0.25em] text-hielo/80">{alliance.shopsTitle}</p>
+          <p className="text-center text-sm uppercase tracking-[0.25em] text-hielo/80">{alliance.shopsTitle}</p>
           <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-4">
             {alliance.shops.map((shop) => (
               <li
@@ -256,19 +227,6 @@ export function Merch() {
           <Waves className="h-16 opacity-50" />
         </div>
 
-        {/* Beneficios para cada parte */}
-        <h3 className="mt-20 text-center text-3xl font-normal text-perla sm:text-4xl">Beneficios para cada parte</h3>
-        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {benefits.map((b) => (
-            <article key={b.title} className="card-dark group flex flex-col items-center p-6 text-center">
-              <span className="icon-ring h-14 w-14 group-hover:border-hielo group-hover:bg-acero/30">
-                <Icon name={b.icon} className="h-6 w-6" strokeWidth={1.5} />
-              </span>
-              <h4 className="mt-4 text-lg font-normal text-perla">{b.title}</h4>
-              <p className="mt-2 text-sm font-light leading-relaxed text-plata/85">{b.text}</p>
-            </article>
-          ))}
-        </div>
       </div>
     </section>
   );
