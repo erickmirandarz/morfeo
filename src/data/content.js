@@ -352,7 +352,7 @@ export const merch = {
   intro:
     "Junto a comercios y emprendimientos locales de Jujuy creamos una línea de merchandising solidario: productos útiles, relacionados con el bienestar y la experiencia de descanso que ofrecemos.",
   // Foto de toda la línea (cabecera de la sección)
-  heroImage: "/merch/linea-morfeo.jpg",
+  heroImage: "/merch/linea-morfeo-70.jpg",
   heroImageAlt:
     "Línea solidaria Morfeo en tu Rutina: botella térmica, antifaz, ecovaso y bruma relajante con el logo de Morfeo",
   // `image`: foto de cada producto (dentro de /public/merch). Si es null se muestra el ícono.
@@ -382,12 +382,12 @@ export const merch = {
       },
     ],
     // Comercios aliados donde se venden los productos. `logo` dentro de /public/aliados (null = se muestra el nombre).
-    // TODO: confirmar el 4.º comercio (en el audio se entiende "el Waze").
     shopsTitle: "Encontrá nuestros productos en",
     shops: [
       { name: "Mostaza", logo: "/aliados/mostaza.png", width: 321, height: 292 },
       { name: "Annuar Shopping", logo: null },
       { name: "Café Martínez", logo: "/aliados/cafe-martinez.svg", width: 300, height: 70 },
+      { name: "Weiss", logo: "/aliados/weiss.png", width: 125, height: 130, dark: true },
       { name: "Recepción MORFEO", logo: "/brand/morfeo-emblema.png", width: 200, height: 200, own: true },
     ],
   },

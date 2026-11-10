@@ -193,12 +193,12 @@ export function Merch() {
 
           {/* Comercios aliados */}
           <p className="mt-12 text-center text-sm uppercase tracking-[0.25em] text-hielo/80">{alliance.shopsTitle}</p>
-          <ul className="mx-auto mt-6 grid max-w-4xl grid-cols-2 gap-4 sm:grid-cols-4">
+          <ul className="mx-auto mt-6 flex max-w-5xl flex-wrap justify-center gap-4">
             {alliance.shops.map((shop) => (
               <li
                 key={shop.name}
-                className={`flex h-28 flex-col items-center justify-center gap-2 rounded-2xl p-4 shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-y-1 ${
-                  shop.own ? "border border-lavanda/40 bg-noche" : "bg-perla"
+                className={`flex h-28 w-[calc(50%-8px)] flex-col sm:w-[calc(33.333%-11px)] lg:w-[calc(20%-13px)] items-center justify-center gap-2 rounded-2xl p-4 shadow-lg shadow-black/30 transition-transform duration-300 hover:-translate-y-1 ${
+                  shop.own ? "border border-lavanda/40 bg-noche" : shop.dark ? "bg-black" : "bg-perla"
                 }`}
               >
                 {shop.logo ? (
